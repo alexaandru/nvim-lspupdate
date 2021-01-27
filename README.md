@@ -39,7 +39,7 @@ therefore I made it so that it requires NO configuration. It should work
 out of the box for the supported configurations ([see status](#status)).
 
 You can however override any (or all) of the commands used (which you can
-[see here](lua/lspupdate/config.lua#L85) by defining a `g:lspupdate_commands`
+[see here](lua/lspupdate/config.lua#L85)) by defining a `g:lspupdate_commands`
 dictionary in your `init.vim`, i.e.:
 
 ```VimL
