@@ -2,13 +2,14 @@
 --
 -- INTERNAL - end users should not have to edit anything in here,
 -- if needed, please submit a ticket.
-
 -- The keys, represent the name of the LSP, as defined in nvim-lspconfig:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 --
 -- The values represent a micro DSL, as follows:
 -- {npm,go,pip,gem,etc.}|package1[,package2[,...]]
 -- where packageN is a package installable by the corresponding command.
+--
+-- LuaFormatter off
 local config = {
   als                    = "",
   angularls              = "npm|@angular/language-server",
@@ -94,8 +95,6 @@ local commands = {
   rust  = "rustup component add %s",
   cargo = "cargo install %s",
 }
+-- LuaFormatter on
 
-return {
-  config   = config,
-  commands = commands,
-}
+return {config = config, commands = commands}

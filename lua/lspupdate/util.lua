@@ -3,19 +3,15 @@ local function strSplit(s, sep)
 
   if s == nil or s == "" then return out end
 
-  for i in string.gmatch(s, "[^"..sep.."]+") do
-    out[#out+1] = i
-  end
+  for i in s:gmatch("[^" .. sep .. "]+") do out[#out + 1] = i end
 
   return out
 end
 
 local function lspVal(s)
-  if s == nil or s == "" or not string.find(s, "|") then
-    return { s }
-  end
+  if s == nil or s == "" or not string.find(s, "|") then return {s} end
 
-  v = strSplit(s, "|")
+  local v = strSplit(s, "|")
 
   return strSplit(v[2], ",")
 end
@@ -24,9 +20,7 @@ local function flatten(t, sep)
   sep = sep or " "
   local out = {}
 
-  for k,v in pairs(t) do
-    out[k] = table.concat(v, sep)
-  end
+  for k, v in pairs(t) do out[k] = table.concat(v, sep) end
 
   return table.concat(out, sep)
 end
@@ -35,9 +29,7 @@ local function merge(a, b)
   if a == nil then return b end
   if b == nil then return a end
 
-  for k,v in pairs(b) do
-    a[k] = v
-  end
+  for k, v in pairs(b) do a[k] = v end
 end
 
 local function osCapture(cmd, raw)
@@ -56,10 +48,9 @@ local function run(cmd, t)
 
   local n = 0
 
-  for k, v in pairs(t) do
-    n = n + 1
-
-    if n > 0 then break end
+  for _, _ in pairs(t) do
+    n = 1
+    break
   end
 
   if n == 0 then return end
@@ -71,10 +62,10 @@ local function run(cmd, t)
 end
 
 return {
-  strSplit  = strSplit,
-  lspVal    = lspVal,
-  flatten   = flatten,
-  merge     = merge,
+  strSplit = strSplit,
+  lspVal = lspVal,
+  flatten = flatten,
+  merge = merge,
   osCapture = osCapture,
-  run       = run,
+  run = run,
 }
