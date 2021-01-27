@@ -1,46 +1,42 @@
-local config = require'lspupdate/config'.config
+local config   = require'lspupdate/config'.config
 local commands = require'lspupdate/config'.commands
-local util = require 'lspupdate/util'
+local util     = require'lspupdate/util'
 
 local function LspUpdate()
-  local cfg = {unk = {}}
+  local packages = {}
+  local unknown  = {}
 
   for k,v in pairs(require'lspconfig/configs') do
     local c = config[k]
 
     if c == nil or c == "" then
-      table.insert(cfg.unk, "WARN: don't know how to handle "..k.." LSP server")
+      table.insert(unknown, "WARN: don't know how to handle "..k.." LSP server")
       goto continue
     end
 
-    local cmd = util.strSplit(c, "|")[1]
-    local val = ""
+    local kind = util.strSplit(c, "|")[1]
 
-    if commands[cmd] == nil then
-      val = "WARN: don't know how to install command "..cmd.." for LSP server "..k
-      cmd = "unk"
-    else
-      val = util.lspVal(c)
+    if commands[kind] == nil then
+      table.insert(unknown, "WARN: don't know how to install command "..kind.." for LSP server "..k)
+      goto continue
     end
 
-    if cfg[cmd] == nil then
-      cfg[cmd] = {}
-    end
+    local val = util.lspVal(c)
 
-    table.insert(cfg[cmd], val)
+    if packages[kind] == nil then packages[kind] = {} end
+
+    table.insert(packages[kind], val)
 
     ::continue::
   end
 
   util.merge(commands, vim.g.lspupdate_commands)
 
-  for k, v in pairs(cfg) do
-    if k ~= nil and k ~= "unk" then
-      util.run(commands[k], v)
-    end
+  for k, v in pairs(packages) do
+    util.run(commands[k], v)
   end
 
-  for k,v in pairs(cfg.unk) do print("LspUpdate: " .. v) end
+  for k,v in pairs(unknown) do print("LspUpdate: " .. v) end
 end
 
 return {

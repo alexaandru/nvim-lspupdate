@@ -1,9 +1,7 @@
 local function strSplit(s, sep)
   local out = {}
 
-  if s == nil or s == "" then
-    return out
-  end
+  if s == nil or s == "" then return out end
 
   for i in string.gmatch(s, "[^"..sep.."]+") do
     out[#out+1] = i
@@ -33,7 +31,7 @@ local function flatten(t, sep)
   return table.concat(out, sep)
 end
 
-local function merge(a,b)
+local function merge(a, b)
   if a == nil then return b end
   if b == nil then return a end
 
@@ -50,17 +48,14 @@ local function osCapture(cmd, raw)
 
   if raw then return s end
 
-  s = string.gsub(s, '^%s+', '')
-  s = string.gsub(s, '%s+$', '')
-  s = string.gsub(s, '[\n\r]+', ' ')
-
-  return s
+  return s:gsub('^%s+', ''):gsub('%s+$', ''):gsub('[\n\r]+', ' ')
 end
 
 local function run(cmd, t)
   if t == nil then return end
 
   local n = 0
+
   for k, v in pairs(t) do
     n = n + 1
 
@@ -69,7 +64,7 @@ local function run(cmd, t)
 
   if n == 0 then return end
 
-  cmd = string.format(cmd, flatten(t))
+  cmd = cmd:format(flatten(t))
 
   vim.cmd("echom 'LspUpdate: " .. cmd .. "... ⏳ '")
   vim.cmd("echom '" .. osCapture(cmd) .. "'")
