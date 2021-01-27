@@ -32,9 +32,6 @@ package manager, e.g.:
 packadd nvim-lspupdate
 ```
 
-Hint: use `:checkhealth lspconfig` before/after to verify that the LSPs were
-installed.
-
 ## Config
 
 I wrote this plugin as I did NOT want to manage installs manually anymore,
@@ -70,6 +67,9 @@ and it will install any missing LSP servers as well as update the existing ones,
 where possible (see below).
 
 Currently, the command takes no options. This may or may not change in the future.
+
+Hint: use `:checkhealth lspconfig` before/after to verify that the LSPs were
+installed.
 
 ## Status
 
