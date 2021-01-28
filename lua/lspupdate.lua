@@ -23,11 +23,9 @@ local function LspUpdate()
       goto continue
     end
 
-    local val = util.lspVal(c)
-
     if packages[kind] == nil then packages[kind] = {} end
 
-    table.insert(packages[kind], val)
+    table.insert(packages[kind], util.lspVal(c))
 
     ::continue::
   end
