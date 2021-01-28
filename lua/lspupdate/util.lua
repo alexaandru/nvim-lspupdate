@@ -10,12 +10,12 @@ function util.flatten(t, sep)
 end
 
 function util.osCapture(cmd)
-  local f = assert(io.popen(cmd, 'r'))
-  local s = assert(f:read('*a'))
+  local f = assert(io.popen(cmd, "r"))
+  local s = assert(f:read("*a"))
 
   f:close()
 
-  return vim.trim(s):gsub('[\n\r]+', ' ')
+  return vim.trim(s):gsub("[\n\r]+", " ")
 end
 
 function util.run(cmd, t)

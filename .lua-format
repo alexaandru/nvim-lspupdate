@@ -23,4 +23,4 @@ extra_sep_at_table_end: true
 column_table_limit: 80
 break_after_operator: false
 double_quote_to_single_quote: false
-single_quote_to_double_quote: false
+single_quote_to_double_quote: true

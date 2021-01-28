@@ -1,15 +1,15 @@
 local lspupdate = {}
 
-local config = require'lspupdate/config'.config
-local commands = require'lspupdate/config'.commands
-local util = require 'lspupdate/util'
+local config = require"lspupdate/config".config
+local commands = require"lspupdate/config".commands
+local util = require "lspupdate/util"
 
 function lspupdate.LspUpdate()
   local packages = {}
   local unknown = {}
   local user_commands = vim.g.lspupdate_commands or {}
 
-  for k, _ in pairs(require 'lspconfig/configs') do
+  for k, _ in pairs(require "lspconfig/configs") do
     local c = config[k]
 
     if not c or c == "" then
@@ -33,7 +33,7 @@ function lspupdate.LspUpdate()
     ::continue::
   end
 
-  local cmds = vim.tbl_extend('force', commands, user_commands)
+  local cmds = vim.tbl_extend("force", commands, user_commands)
 
   for k, v in pairs(packages) do util.run(cmds[k], v) end
   for _, v in pairs(unknown) do print("LspUpdate: " .. v) end
