@@ -94,7 +94,7 @@ local commands = {
   raco     = "raco pkg install %s",
   rust     = "rustup component add %s",
   cargo    = "cargo install %s",
-  cargogit = "cargo --install --git --locked %s",
+  cargogit = "cargo install --locked --git %s",
 }
 -- LuaFormatter on
 
