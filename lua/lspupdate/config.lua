@@ -1,3 +1,5 @@
+local config = {}
+
 -- Holds the installation/update instructions.
 --
 -- INTERNAL - end users should not have to edit anything in here,
@@ -10,7 +12,7 @@
 -- where packageN is a package installable by the corresponding command.
 --
 -- LuaFormatter off
-local config = {
+config.config = {
   als                    = "",
   angularls              = "npm|@angular/language-server",
   bashls                 = "npm|bash-language-server",
@@ -83,7 +85,7 @@ local config = {
 --
 -- The command MUST embed a %s in it - that will be replaced
 -- with the (space separated) list of packages to install.
-local commands = {
+config.commands = {
   npm      = "npm up -g %s",
   go       = "cd /tmp && GO111MODULE=on go get %s",
   pip      = "pip3 install --user -U -q %s",
@@ -98,4 +100,4 @@ local commands = {
 }
 -- LuaFormatter on
 
-return {config = config, commands = commands}
+return config

@@ -1,71 +1,30 @@
-local function strSplit(s, sep)
-  local out = {}
+local util = {}
 
-  if s == nil or s == "" then return out end
-
-  for i in s:gmatch("[^" .. sep .. "]+") do out[#out + 1] = i end
-
-  return out
+function util.lspVal(s)
+  if not s or s == "" or not string.find(s, "|") then return {s} end
+  return vim.split(vim.split(s, "|")[2], ",")
 end
 
-local function lspVal(s)
-  if s == nil or s == "" or not string.find(s, "|") then return {s} end
-
-  local v = strSplit(s, "|")
-
-  return strSplit(v[2], ",")
+function util.flatten(t, sep)
+  return table.concat(vim.tbl_flatten(t), sep or " ")
 end
 
-local function flatten(t, sep)
-  sep = sep or " "
-  local out = {}
-
-  for k, v in pairs(t) do out[k] = table.concat(v, sep) end
-
-  return table.concat(out, sep)
-end
-
-local function merge(a, b)
-  if a == nil then return b end
-  if b == nil then return a end
-
-  for k, v in pairs(b) do a[k] = v end
-end
-
-local function osCapture(cmd, raw)
+function util.osCapture(cmd)
   local f = assert(io.popen(cmd, 'r'))
   local s = assert(f:read('*a'))
 
   f:close()
 
-  if raw then return s end
-
-  return s:gsub('^%s+', ''):gsub('%s+$', ''):gsub('[\n\r]+', ' ')
+  return vim.trim(s):gsub('[\n\r]+', ' ')
 end
 
-local function run(cmd, t)
-  if t == nil then return end
+function util.run(cmd, t)
+  if not t or vim.tbl_isempty(t) then return end
 
-  local n = 0
-
-  for _, _ in pairs(t) do
-    n = 1
-    break
-  end
-
-  if n == 0 then return end
-
-  cmd = cmd:format(flatten(t))
+  cmd = cmd:format(util.flatten(t))
 
   vim.cmd("echom 'LspUpdate: " .. cmd .. "... ⏳ '")
-  vim.cmd("echom '" .. osCapture(cmd) .. "'")
+  vim.cmd("echom '" .. util.osCapture(cmd) .. "'")
 end
 
-return {
-  strSplit = strSplit,
-  lspVal = lspVal,
-  flatten = flatten,
-  merge = merge,
-  osCapture = osCapture,
-  run = run,
-}
+return util
