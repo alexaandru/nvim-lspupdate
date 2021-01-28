@@ -68,7 +68,7 @@ local config = {
   sumneko_lua            = "",
   svelte                 = "npm|svelte-language-server",
   terraformls            = "",
-  texlab                 = "",
+  texlab                 = "cargogit|https://github.com/latex-lsp/texlab.git",
   tsserver               = "npm|typescript,typescript-language-server",
   vimls                  = "npm|vim-language-server",
   vuels                  = "npm|vls",
@@ -84,16 +84,17 @@ local config = {
 -- The command MUST embed a %s in it - that will be replaced
 -- with the (space separated) list of packages to install.
 local commands = {
-  npm   = "npm up -g %s",
-  go    = "cd /tmp && GO111MODULE=on go get %s",
-  pip   = "pip3 install --user -U -q %s",
-  gem   = "gem update --user-install %s",
-  nix   = "nix-shell -p %s",
-  cabal = "cabal install %s",
-  nim   = "nimble install %s",
-  raco  = "raco pkg install %s",
-  rust  = "rustup component add %s",
-  cargo = "cargo install %s",
+  npm      = "npm up -g %s",
+  go       = "cd /tmp && GO111MODULE=on go get %s",
+  pip      = "pip3 install --user -U -q %s",
+  gem      = "gem update --user-install %s",
+  nix      = "nix-shell -p %s",
+  cabal    = "cabal install %s",
+  nim      = "nimble install %s",
+  raco     = "raco pkg install %s",
+  rust     = "rustup component add %s",
+  cargo    = "cargo install %s",
+  cargogit = "cargo --install --git --locked %s",
 }
 -- LuaFormatter on
 
