@@ -1,5 +1,7 @@
 # Neovim LSP Update
 
+![Test](https://github.com/alexaandru/nvim-lspupdate/workflows/Test/badge.svg)
+
 Updates installed (or auto installs if missing) LSP servers, that are already
 configured in your `init.vim`.
 
