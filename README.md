@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Neovim LSP Update](#neovim-lsp-update)
+  - [Dependencies](#dependencies)
+  - [Install](#install)
+  - [Config](#config)
+  - [Use](#use)
+  - [Status](#status)
+    - [Beta](#beta)
+    - [Pre-alpha](#pre-alpha)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Neovim LSP Update
 
 ![Test](https://github.com/alexaandru/nvim-lspupdate/workflows/Test/badge.svg)
