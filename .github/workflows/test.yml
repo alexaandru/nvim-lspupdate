@@ -12,7 +12,5 @@ jobs:
         with:
           neovim: true
           version: nightly
-      - run: ls
-      - run: pwd
       - name: test
         run: make
