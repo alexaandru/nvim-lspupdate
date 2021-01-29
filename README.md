@@ -1,6 +1,8 @@
 # Neovim LSP Update
 
 ![Test](https://github.com/alexaandru/nvim-lspupdate/workflows/Test/badge.svg)
+![Open issues](https://img.shields.io/github/issues/alexaandru/nvim-lspupdate.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 Updates installed (or auto installs if missing) LSP servers, that are already
 configured in your `init.vim`.
