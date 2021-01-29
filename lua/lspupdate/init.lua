@@ -1,34 +1,32 @@
-local lspupdate = {}
-
 local config = require"lspupdate/config".config
 local commands = require"lspupdate/config".commands
 local util = require "lspupdate/util"
 
-function lspupdate.LspUpdate()
+return function()
   local packages = {}
   local unknown = {}
   local user_commands = vim.g.lspupdate_commands or {}
 
-  for k, _ in pairs(require "lspconfig/configs") do
-    local c = config[k]
+  for lsp, _ in pairs(require "lspconfig/configs") do
+    local cfg = config[lsp]
 
-    if not c or c == "" then
+    if not cfg or cfg == "" then
       table.insert(unknown,
-                   "WARN: don't know how to handle " .. k .. " LSP server")
+                   "WARN: don't know how to handle " .. lsp .. " LSP server")
       goto continue
     end
 
-    local kind = vim.split(c, "|")[1]
+    local kind = vim.split(cfg, "|")[1]
 
     if not commands[kind] then
       table.insert(unknown, "WARN: don't know how to install command " .. kind
-                       .. " for LSP server " .. k)
+                       .. " for LSP server " .. lsp)
       goto continue
     end
 
     if not packages[kind] then packages[kind] = {} end
 
-    table.insert(packages[kind], util.lspVal(c))
+    table.insert(packages[kind], util.lspVal(cfg))
 
     ::continue::
   end
@@ -38,5 +36,3 @@ function lspupdate.LspUpdate()
   for k, v in pairs(packages) do util.run(cmds[k], v) end
   for _, v in pairs(unknown) do print("LspUpdate: " .. v) end
 end
-
-return lspupdate

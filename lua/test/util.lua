@@ -12,5 +12,8 @@ require "test"("lspupdate/util", {
     {args = {{"foo", "bar"}, "^"}, exp = "foo^bar"},
     {args = {{"foo", {"bar", "baz"}}, " "}, exp = "foo bar baz"},
   },
-  osCapture = {{args = {"echo hello world"}, exp = "hello world"}},
+  osCapture = {
+    {args = {"echo hello world"}, exp = "hello world"},
+    {args = {"bash -c 'echo $[2+2]'"}, exp = "4"},
+  },
 })
