@@ -13,6 +13,8 @@ jobs:
           neovim: true
           version: nightly
       - name: symlink
-        run: ln -s lua/lspupdate
+        run: |
+          ln -s lua/lspupdate
+          ln -s lua/test
       - name: test
         run: make
