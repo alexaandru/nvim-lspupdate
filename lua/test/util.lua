@@ -1,6 +1,4 @@
-local util = require "lspupdate/util"
-
-util.test(util, {
+require "test/test"("lspupdate/util", {
   lspVal = {
     {args = {""}, exp = {""}},
     {args = {"foo|"}, exp = {""}},
