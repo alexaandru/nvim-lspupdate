@@ -16,5 +16,6 @@ jobs:
         run: |
           ln -s lua/lspupdate
           ln -s lua/test
+          ln -s test/init.lua test.lua
       - name: test
         run: make
