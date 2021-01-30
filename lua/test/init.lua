@@ -10,13 +10,13 @@
 --
 -- Run it with: `neovim --headless +'luafile x/y.lua' +q`
 -- no error/output == success!
-return function(package, testCases)
+return function(package, testSuite)
   local I = vim.inspect
-  for k, v in pairs(testCases) do
-    for _, tc in pairs(v) do
-      local act = require(package)[k](unpack(tc.args))
+  for func, testCases in pairs(testSuite) do
+    for _, tc in pairs(testCases) do
+      local act = require(package)[func](unpack(tc.args))
       assert(vim.deep_equal(tc.exp, act),
-             "testing " .. package .. "." .. k .. "(), expected " .. I(tc.exp)
+             "testing " .. package .. "." .. func .. "(), expected " .. I(tc.exp)
                  .. " got " .. I(act) .. " for args " .. I(tc.args))
     end
   end
