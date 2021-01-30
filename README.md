@@ -10,6 +10,7 @@
   - [Status](#status)
     - [Beta](#beta)
     - [Pre-alpha](#pre-alpha)
+    - [Roadmap](#roadmap)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -115,3 +116,19 @@ used `gem` in many years now, so not sure how it works these days and haven't
 used any of the others at all, so can't tell if or how well they work.
 
 Feedback (as well as PRs) are more than welcome :-)
+
+### Roadmap
+
+In no particular order:
+
+- dry run (show but don't actually run the commands);
+- integration tests;
+- add support for github binary releases;
+- make the config configurable by end users (so they can override
+  particular entries and use alternate sources/versions/etc.);
+- add a nice way to handle "complicated installs" (yes sumenko_lua,
+  that includes you);
+- give a way to end users to control if the packages (for a
+  particular LSP or package kind) are "merged" into a single
+  command or handled individually;
+- ensure it runs well on all of {Linux,MacOS,Windows}.

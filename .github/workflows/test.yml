@@ -2,20 +2,22 @@ name: Test
 on: push
 jobs:
   test:
-    name: Test
+    name: Test on Linux
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Install Deps
+        run:  sudo apt install lua-check
+      - name: Checkout
         uses: actions/checkout@v2
-      - name: setup neovim
+      - name: Setup Neovim
         uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
           version: nightly
-      - name: symlink
+      - name: Symlink
         run: |
           ln -s lua/lspupdate
           ln -s lua/test
           ln -s test/init.lua test.lua
-      - name: test
-        run: make
+      - name: Test
+        run: make test
