@@ -14,13 +14,8 @@ jobs:
         with:
           neovim: true
           version: nightly
-      - name: Symlink
-        run: |
-          ln -s lua/lspupdate
-          ln -s lua/test
-          ln -s test/init.lua test.lua
       - name: Test
-        run: make test
+        run: LUA_PATH="lua/?/init.lua;lua/?.lua;$(lua -e 'print(package.path)')" make
   macos:
     name: Test on MacOS
     runs-on: macos-latest
@@ -36,10 +31,5 @@ jobs:
         with:
           neovim: true
           version: nightly
-      - name: Symlink
-        run: |
-          ln -s lua/lspupdate
-          ln -s lua/test
-          ln -s test/init.lua test.lua
       - name: Test
-        run: make test
+        run: LUA_PATH="lua/?/init.lua;lua/?.lua;$(lua -e 'print(package.path)')" make
