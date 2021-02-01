@@ -8,16 +8,19 @@
 -- and `exp` - the expectation, will be used as is and compared
 -- against the actual output from the function being tested.
 --
--- Run it with: `neovim --headless +'luafile x/y.lua' +q`
+-- Run it with: `nvim --headless +'luafile x/y.lua' +q`
 -- no error/output == success!
 return function(package, testSuite)
   local I = vim.inspect
   for func, testCases in pairs(testSuite) do
     for _, tc in pairs(testCases) do
       local act = require(package)[func](unpack(tc.args))
+      local args = I(tc.args) or ""
+      if args:len() > 4 then args = args:sub(3, args:len() - 2) end
+
       assert(vim.deep_equal(tc.exp, act),
-             "testing " .. package .. "." .. func .. "(), expected " .. I(tc.exp)
-                 .. " got " .. I(act) .. " for args " .. I(tc.args))
+             "testing " .. package .. "." .. func .. "(" .. args
+                 .. "), expected " .. I(tc.exp) .. " got " .. I(act) .. "\n")
     end
   end
 end

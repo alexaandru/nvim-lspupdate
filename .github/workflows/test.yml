@@ -7,13 +7,13 @@ jobs:
     steps:
       - name: Install Deps
         run:  sudo apt install lua-check
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Setup Neovim
         uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
           version: nightly
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Test
         run: LUA_PATH="lua/?/init.lua;lua/?.lua;$(lua -e 'print(package.path)')" make
   macos:
@@ -24,12 +24,12 @@ jobs:
         run:  |
           brew install luarocks
           luarocks install luacheck
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Setup Neovim
         uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
           version: nightly
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Test
         run: LUA_PATH="lua/?/init.lua;lua/?.lua;$(lua -e 'print(package.path)')" make
