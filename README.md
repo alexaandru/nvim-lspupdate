@@ -91,27 +91,39 @@ installed.
 
 ## Status
 
-Mix of <b>beta</b>, pre-alpha and <s>not (yet) supported</s>.
+Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>.
 
-|LSP servers|LSP servers|LSP servers|LSP servers|
-|:-:|:-:|:-:|:-:|
-|<s>als</s>          |flow                          |<s>metals</s>            |solargraph          |
-|<b>angularls</b>    |<b>fortls</b>                 |<b>nimls</b>             |sorbet              |
-|<b>bashls</b>       |<s>gdscript</s>               |<b>ocamlls</b>           |<s>sourcekit</s>    |
-|<s>ccls</s>         |<s>ghcide</s>                 |<s>ocamllsp</s>          |<b>sqlls</b>        |
-|<s>clangd</s>       |<b>gopls</b>                  |<s>omnisharp</s>         |<b>sqls</b>         |
-|clojure_lsp         |<b>graphql</b>                |<s>perlls</s>            |<s>sumneko_lua</s>  |
-|<b>cmake</b>        |<s>groovyls</s>               |<b>purescriptls</b>      |<b>svelte</b>       |
-|<s>codeqlls</s>     |<s>hie</s>                    |<b>pyls</b>              |<s>terraformls</s>  |
-|<b>cssls</b>        |<s>hls</s>                    |<s>pyls_ms</s>           |<b>texlab</b>       |
-|<s>dartls</s>       |<b>html</b>                   |<s>pyright</s>           |<b>tsserver</b>     |
-|<s>denols</s>       |<b>intelephense</b>           |<s>r_language_server</s> |<b>vimls</b>        |
-|dhall_lsp_server    |<s>jdtls</s>                  |racket_langserver        |<s>vls</s>          |
-|<b>diagnosticls</b> |<b>jedi_language_server</b>   |rls                      |<b>vuels</b>        |
-|<b>dockerls</b>     |<b>jsonls</b>                 |rnix                     |<b>yamlls</b>       |
-|<b>efm</b>          |<s>julials</s>                |<b>rome</b>              |<s>zls</s>          |
-|<s>elixirls</s>     |<s>kotlin_language_server</s> |<s>rust_analyzer</s>     |
-|<b>elmls</b>        |<b>leanls</b>                 |<s>scry</s>              |
+|**`Beta`**|`pre-Alpha`|<s>not supported</s>|
+|:-:|:-:|:-:|
+|**`angularls`**            |`clojure_lsp`       |<s>als</s>|
+|**`bashls`**               |`dhall_lsp_server`  |<s>ccls</s>|
+|**`cmake`**                |`flow`              |<s>clangd</s>|
+|**`cssls`**                |`racket_langserver` |<s>codeqlls</s>|
+|**`diagnosticls`**         |`rls`               |<s>dartls</s>|
+|**`dockerls`**             |`rnix`              |<s>denols</s>|
+|**`efm`**                  |`solargraph`        |<s>elixirls</s>|
+|**`elmls`**                |`sorbet`            |<s>gdscript</s>|
+|**`fortls`**               |                    |<s>ghcide</s>|
+|**`gopls`**                |                    |<s>groovyls</s>|
+|**`graphql`**              |                    |<s>hie</s>|
+|**`html`**                 |                    |<s>hls</s>|
+|**`intelephense`**         |                    |<s>jdtls</s>|
+|**`jedi_language_server`** |                    |<s>julials</s>|
+|**`jsonls`**               |                    |<s>kotlin_language_server</s>|
+|**`leanls`**               |                    |<s>metals</s>|
+|**`nimls`**                |                    |<s>ocamllsp</s>|
+|**`ocamlls`**              |                    |<s>omnisharp</s>|
+|**`purescriptls`**         |                    |<s>perlls</s>|
+|**`pyls`**                 |                    |<s>pyls_ms</s>|
+|**`rome`**                 |                    |<s>pyright</s>|
+|**`sqlls`**                |                    |<s>r_language_server</s>|
+|**`sqls`**                 |                    |<s>rust_analyzer</s>|
+|**`svelte`**               |                    |<s>scry</s>|
+|**`texlab`**               |                    |<s>sourcekit</s>|
+|**`tsserver`**             |                    |<s>sumneko_lua</s>|
+|**`vimls`**                |                    |<s>terraformls</s>|
+|**`vuels`**                |                    |<s>vls</s>|
+|**`yamlls`**               |                    |<s>zls</s>|
 
 About half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were
