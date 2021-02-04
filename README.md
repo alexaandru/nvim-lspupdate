@@ -151,7 +151,4 @@ In no particular order:
 - give a way to end users to control if the packages (for a
   particular LSP or package kind) are "merged" into a single
   command or handled individually;
-- ensure it runs well on all of {Linux,MacOS,Windows};
-- add a make target to verify our config against nvim-lspconfig
-  to ensure we're catching any additions to the list of supported
-  LSP servers.
+- ensure it runs well on all of {Linux,MacOS,Windows}.
