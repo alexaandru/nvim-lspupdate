@@ -91,103 +91,27 @@ installed.
 
 ## Status
 
-<style>
-section.cols {
-        display:flex;
-}
-section.cols div {
-        width:100%;
-}
-.green {
-color:green;
-        }
-.gray {
-        color:gray;
-        text-decoration: line-through;
-        }
-</style>
+Mix of beta (<b>bold</b>), pre-alpha (normal) and not (yet) supported (<s>strike-through</s>).
 
-Mix of beta (<b class="green">green</b>), pre-alpha (<b>bold</b>) and not (yet) supported (<span class="gray">gray</span>).
+|LSP servers|LSP servers|LSP servers|LSP servers|
+|:-:|:-:|:-:|:-:|
+|<s>als</s>          |<b>elmls</b>                  |<b>leanls</b>            |<s>rust_analyzer</s>|
+|<b>angularls</b>    |flow                          |<s>metals</s>            |<s>scry</s>         |
+|<b>bashls</b>       |<b>fortls</b>                 |<b>nimls</b>             |solargraph          |
+|<s>ccls</s>         |<s>gdscript</s>               |<b>ocamlls</b>           |sorbet              |
+|<s>clangd</s>       |<s>ghcide</s>                 |<s>ocamllsp</s>          |<s>sourcekit</s>    |
+|clojure_lsp         |<b>gopls</b>                  |<s>omnisharp</s>         |<b>sqlls</b>        |
+|<b>cmake</b>        |<s>groovyls</s>               |<s>perlls</s>            |<s>sumneko_lua</s>  |
+|<s>codeqlls</s>     |<s>hie</s>                    |<b>purescriptls</b>      |<b>svelte</b>       |
+|<b>cssls</b>        |<s>hls</s>                    |<b>pyls</b>              |<s>terraformls</s>  |
+|<s>dartls</s>       |<b>html</b>                   |<s>pyls_ms</s>           |<b>texlab</b>       |
+|<s>denols</s>       |<b>intelephense</b>           |<s>pyright</s>           |<b>tsserver</b>     |
+|dhall_lsp_server    |<s>jdtls</s>                  |<s>r_language_server</s> |<b>vimls</b>        |
+|<b>diagnosticls</b> |<b>jedi_language_server</b>   |racket_langserver        |<s>vls</s>          |
+|<b>dockerls</b>     |<b>jsonls</b>                 |rls                      |<b>vuels</b>        |
+|<b>efm</b>          |<s>julials</s>                |rnix                     |<b>yamlls</b>       |
+|<s>elixirls</s>     |<s>kotlin_language_server</s> |<b>rome</b>              |<s>zls</s>          |
 
-<section class="cols">
-<div>
-<span class="gray">als</span><br>
-<b class="green">angularls</b><br>
-<b class="green">bashls</b><br>
-<span class="gray">ccls</span><br>
-<span class="gray">clangd</span><br>
-<b class="">clojure_lsp</b><br>
-<b class="green">cmake</b><br>
-<span class="gray">codeqlls</span><br>
-<b class="green">cssls</b><br>
-<span class="gray">dartls</span><br>
-<span class="gray">denols</span><br>
-<b class="">dhall_lsp_server</b><br>
-<b class="green">diagnosticls</b><br>
-<b class="green">dockerls</b><br>
-<b class="green">efm</b><br>
-<span class="gray">elixirls</span><br>
-</div>
-
-<div>
-<b class="green">elmls</b><br>
-<b class="">flow</b><br>
-<b class="green">fortls</b><br>
-<span class="gray">gdscript</span><br>
-<span class="gray">ghcide</span><br>
-<b class="green">gopls</b><br>
-<span class="gray">groovyls</span><br>
-<span class="gray">hie</span><br>
-<span class="gray">hls</span><br>
-<b class="green">html</b><br>
-<b class="green">intelephense</b><br>
-<span class="gray">jdtls</span><br>
-<b class="green">jedi_language_server</b><br>
-<b class="green">jsonls</b><br>
-<span class="gray">julials</span><br>
-<span class="gray">kotlin_language_server</span><br>
-</div>
-
-<div>
-<b class="green">leanls</b><br>
-<span class="gray">metals</span><br>
-<b class="green">nimls</b><br>
-<b class="green">ocamlls</b><br>
-<span class="gray">ocamllsp</span><br>
-<span class="gray">omnisharp</span><br>
-<span class="gray">perlls</span><br>
-<b class="green">purescriptls</b><br>
-<b class="green">pyls</b><br>
-<span class="gray">pyls_ms</span><br>
-<span class="gray">pyright</span><br>
-<span class="gray">r_language_server</span><br>
-<b class="">racket_langserver</b><br>
-<b class="">rls</b><br>
-<b class="">rnix</b><br>
-<b class="green">rome</b><br>
-</div>
-
-<div>
-<span class="gray">rust_analyzer</span><br>
-<span class="gray">scry</span><br>
-<b class="">solargraph</b><br>
-<b class="">sorbet</b><br>
-<span class="gray">sourcekit</span><br>
-<b class="green">sqlls</b><br>
-<span class="gray">sumneko_lua</span><br>
-<b class="green">svelte</b><br>
-<span class="gray">terraformls</span><br>
-<b class="green">texlab</b><br>
-<b class="green">tsserver</b><br>
-<b class="green">vimls</b><br>
-<span class="gray">vls</span><br>
-<b class="green">vuels</b><br>
-<b class="green">yamlls</b><br>
-<span class="gray">zls</span><br>
-</div>
-</section>
-
-&nbsp;<br>
 About half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were
 tested. These are what I would consider beta.
