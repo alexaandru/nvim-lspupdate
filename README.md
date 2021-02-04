@@ -111,6 +111,7 @@ Mix of <b>beta</b>, pre-alpha and <s>not (yet) supported</s>.
 |<b>dockerls</b>     |<b>jsonls</b>                 |rls                      |<b>vuels</b>        |
 |<b>efm</b>          |<s>julials</s>                |rnix                     |<b>yamlls</b>       |
 |<s>elixirls</s>     |<s>kotlin_language_server</s> |<b>rome</b>              |<s>zls</s>          |
+|<b>sqls</b>|
 
 About half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were

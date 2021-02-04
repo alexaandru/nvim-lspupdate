@@ -66,6 +66,7 @@ config.config = {
   solargraph             = "gem|solargraph",
   sorbet                 = "gem|sorbet",
   sourcekit              = "",
+  sqls                   = "go|https://github.com/lighttiger2505/sqls",
   sqlls                  = "npm|sql-language-server",
   sumneko_lua            = "",
   svelte                 = "npm|svelte-language-server",
