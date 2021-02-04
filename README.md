@@ -91,7 +91,7 @@ installed.
 
 ## Status
 
-Mix of beta (<b>bold</b>), pre-alpha (normal) and not (yet) supported (<s>strike-through</s>).
+Mix of <b>beta</b>, pre-alpha and <s>not (yet) supported</s>.
 
 |LSP servers|LSP servers|LSP servers|LSP servers|
 |:-:|:-:|:-:|:-:|
