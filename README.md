@@ -8,9 +8,7 @@
   - [Config](#config)
   - [Use](#use)
   - [Status](#status)
-    - [Beta](#beta)
-    - [Pre-alpha](#pre-alpha)
-    - [Roadmap](#roadmap)
+  - [Roadmap](#roadmap)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -93,31 +91,116 @@ installed.
 
 ## Status
 
-Mix of beta and pre-alpha.
+<style>
+section.cols {
+        display:flex;
+}
+section.cols div {
+        width:100%;
+}
+.green {
+color:green;
+        }
+.gray {
+        color:gray;
+        text-decoration: line-through;
+        }
+</style>
 
-### Beta
+Mix of beta (<b class="green">green</b>), pre-alpha (<b>bold</b>) and not (yet) supported (<span class="gray">gray</span>).
 
-About half of the servers can be installed by this plugin (see [config](lua/lspupdate/config.lua)
-for details), and few of them were actually tested (only those that I use).
-That is only `npm`, `pip` and `go` packages.
+<section class="cols">
+<div>
+<span class="gray">als</span><br>
+<b class="green">angularls</b><br>
+<b class="green">bashls</b><br>
+<span class="gray">ccls</span><br>
+<span class="gray">clangd</span><br>
+<b class="">clojure_lsp</b><br>
+<b class="green">cmake</b><br>
+<span class="gray">codeqlls</span><br>
+<b class="green">cssls</b><br>
+<span class="gray">dartls</span><br>
+<span class="gray">denols</span><br>
+<b class="">dhall_lsp_server</b><br>
+<b class="green">diagnosticls</b><br>
+<b class="green">dockerls</b><br>
+<b class="green">efm</b><br>
+<span class="gray">elixirls</span><br>
+</div>
 
-Now for these three, it actually seems to work very well AND they support
-BOTH install and update, due to the way their update/install commands work
-(`npm` will install on "update" command if not already installed, `pip` has
-an "update" flag for the install command, etc.).
+<div>
+<b class="green">elmls</b><br>
+<b class="">flow</b><br>
+<b class="green">fortls</b><br>
+<span class="gray">gdscript</span><br>
+<span class="gray">ghcide</span><br>
+<b class="green">gopls</b><br>
+<span class="gray">groovyls</span><br>
+<span class="gray">hie</span><br>
+<span class="gray">hls</span><br>
+<b class="green">html</b><br>
+<b class="green">intelephense</b><br>
+<span class="gray">jdtls</span><br>
+<b class="green">jedi_language_server</b><br>
+<b class="green">jsonls</b><br>
+<span class="gray">julials</span><br>
+<span class="gray">kotlin_language_server</span><br>
+</div>
 
-These are what I would consider beta at this point, they work, I use them to
-keep the LSPs I am interested in up to date, problem solved :-)
+<div>
+<b class="green">leanls</b><br>
+<span class="gray">metals</span><br>
+<b class="green">nimls</b><br>
+<b class="green">ocamlls</b><br>
+<span class="gray">ocamllsp</span><br>
+<span class="gray">omnisharp</span><br>
+<span class="gray">perlls</span><br>
+<b class="green">purescriptls</b><br>
+<b class="green">pyls</b><br>
+<span class="gray">pyls_ms</span><br>
+<span class="gray">pyright</span><br>
+<span class="gray">r_language_server</span><br>
+<b class="">racket_langserver</b><br>
+<b class="">rls</b><br>
+<b class="">rnix</b><br>
+<b class="green">rome</b><br>
+</div>
 
-### Pre-alpha
+<div>
+<span class="gray">rust_analyzer</span><br>
+<span class="gray">scry</span><br>
+<b class="">solargraph</b><br>
+<b class="">sorbet</b><br>
+<span class="gray">sourcekit</span><br>
+<b class="green">sqlls</b><br>
+<span class="gray">sumneko_lua</span><br>
+<b class="green">svelte</b><br>
+<span class="gray">terraformls</span><br>
+<b class="green">texlab</b><br>
+<b class="green">tsserver</b><br>
+<b class="green">vimls</b><br>
+<span class="gray">vls</span><br>
+<b class="green">vuels</b><br>
+<b class="green">yamlls</b><br>
+<span class="gray">zls</span><br>
+</div>
+</section>
 
-I have also defined commands for `gem`, `nix`, `cabal` and others BUT I haven't
-used `gem` in many years now, so not sure how it works these days and haven't
-used any of the others at all, so can't tell if or how well they work.
+&nbsp;<br>
+About half of the servers have [a config and a command](lua/lspupdate/config.lua)
+defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were
+tested. These are what I would consider beta.
 
-Feedback (as well as PRs) are more than welcome :-)
+The others that do have a config and a command defined, but were not yet
+tested (`gem`, `cargo`, `nix`, etc.) I would consider pre-alpha. In theory,
+they may work. If you do use them and they work, please let me know so I
+can update this README accordingly.
 
-### Roadmap
+Those that do not even have a config or command defined are, obviously,
+not supported.
+
+## Roadmap
 
 In no particular order:
 
@@ -131,4 +214,7 @@ In no particular order:
 - give a way to end users to control if the packages (for a
   particular LSP or package kind) are "merged" into a single
   command or handled individually;
-- ensure it runs well on all of {Linux,MacOS,Windows}.
+- ensure it runs well on all of {Linux,MacOS,Windows};
+- add a make target to verify our config against nvim-lspconfig
+  to ensure we're catching any additions to the list of supported
+  LSP servers.

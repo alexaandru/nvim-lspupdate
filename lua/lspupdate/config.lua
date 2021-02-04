@@ -73,6 +73,7 @@ config.config = {
   texlab                 = "cargogit|https://github.com/latex-lsp/texlab.git",
   tsserver               = "npm|typescript,typescript-language-server",
   vimls                  = "npm|vim-language-server",
+  vls                    = "",
   vuels                  = "npm|vls",
   yamlls                 = "npm|yaml-language-server",
   zls                    = "",
