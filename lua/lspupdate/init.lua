@@ -2,7 +2,17 @@ local config = require"lspupdate/config".config
 local commands = require"lspupdate/config".commands
 local util = require "lspupdate/util"
 
-return function()
+return function(opt)
+  local dry = false
+
+  if opt then
+    if opt ~= "dry" then
+      print("LspUpdate: ERROR: only parameter 'dry' is supported")
+      return
+    end
+    dry = true
+  end
+
   local packages = {}
   local unknown = {}
   local user_commands = vim.g.lspupdate_commands or {}
@@ -33,6 +43,6 @@ return function()
 
   local cmds = vim.tbl_extend("force", commands, user_commands)
 
-  for k, v in pairs(packages) do util.run(cmds[k], v) end
+  for k, v in pairs(packages) do util.run(cmds[k], v, dry) end
   for _, v in pairs(unknown) do print("LspUpdate: " .. v) end
 end

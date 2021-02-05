@@ -1,5 +1,5 @@
 if exists('g:loaded_lspupdate') | finish | endif
 
-com! LspUpdate lua require'lspupdate'()
+com! -nargs=? LspUpdate lua require'lspupdate'(<f-args>)
 
 let g:loaded_lspupdate = 1

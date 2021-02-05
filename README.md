@@ -78,16 +78,16 @@ how to setup the LSP servers' configuration. Once you have them configured
 (or any time later, for updates), then run:
 
 ```
-:LspUpdate
+:LspUpdate [dry]
 ```
 
 and it will install any missing LSP servers as well as update the existing ones,
 where possible (see below).
 
-Currently, the command takes no options. This may or may not change in the future.
-
 Hint: use `:checkhealth lspconfig` before/after to verify that the LSPs were
 installed.
+
+If the dry parameter is passed, then commands are only printed but not actually run.
 
 ## Status
 
@@ -141,7 +141,6 @@ not supported.
 
 In no particular order:
 
-- dry run (show but don't actually run the commands);
 - integration tests;
 - add support for github binary releases;
 - make the config configurable by end users (so they can override
