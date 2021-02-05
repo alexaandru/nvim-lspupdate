@@ -126,7 +126,7 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>.
 |**`vuels`**                |
 |**`yamlls`**               |
 
-About half of the servers have [a config and a command](lua/lspupdate/config.lua)
+Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were
 tested. These are what I would consider beta.
 
