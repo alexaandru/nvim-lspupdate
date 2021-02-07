@@ -91,40 +91,73 @@ If the dry parameter is passed, then commands are only printed but not actually 
 
 ## Status
 
-Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>.
-
-|**`Beta`**|`pre-Alpha`|<s>not supported</s>|
-|:-:|:-:|:-:|
-|**`angularls`**            |`clojure_lsp`       |<s>als</s>|
-|**`bashls`**               |`denols`            |<s>ccls</s>|
-|**`cmake`**                |`dhall_lsp_server`  |<s>clangd</s>|
-|**`cssls`**                |`flow`              |<s>codeqlls</s>|
-|**`diagnosticls`**         |`r_language_server` |<s>dartls</s>|
-|**`dockerls`**             |`racket_langserver` |<s>elixirls</s>|
-|**`efm`**                  |`rls`               |<s>gdscript</s>|
-|**`elmls`**                |`rnix`              |<s>ghcide</s>|
-|**`fortls`**               |`solargraph`        |<s>groovyls</s>|
-|**`gopls`**                |`sorbet`            |<s>hie</s>|
-|**`graphql`**              |                    |<s>hls</s>|
-|**`html`**                 |                    |<s>jdtls</s>|
-|**`intelephense`**         |                    |<s>julials</s>|
-|**`jedi_language_server`** |                    |<s>kotlin_language_server</s>|
-|**`jsonls`**               |                    |<s>metals</s>|
-|**`leanls`**               |                    |<s>ocamllsp</s>|
-|**`nimls`**                |                    |<s>omnisharp</s>|
-|**`ocamlls`**              |                    |<s>perlls</s>|
-|**`purescriptls`**         |                    |<s>pyls_ms</s>|
-|**`pyls`**                 |                    |<s>rust_analyzer</s>|
-|**`pyright`**              |                    |<s>scry</s>|
-|**`rome`**                 |                    |<s>sourcekit</s>|
-|**`sqlls`**                |                    |<s>sumneko_lua</s>|
-|**`sqls`**                 |                    |<s>terraformls</s>|
-|**`svelte`**               |                    |<s>vls</s>|
-|**`texlab`**               |                    |<s>zls</s>                   |
-|**`tsserver`**             |
-|**`vimls`**                |
-|**`vuels`**                |
-|**`yamlls`**               |
+Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
+<s>als</s>
+**`angularls`**
+**`bashls`**
+<s>ccls</s>
+<s>clangd</s>
+`clojure_lsp`
+**`cmake`**
+<s>codeqlls</s>
+**`cssls`**
+<s>dartls</s>
+`denols`
+`dhall_lsp_server`
+**`diagnosticls`**
+**`dockerls`**
+**`efm`**
+<s>elixirls</s>
+**`elmls`**
+`flow`
+**`fortls`**
+<s>gdscript</s>
+<s>ghcide</s>
+**`gopls`**
+**`graphql`**
+<s>groovyls</s>
+<s>hie</s>
+<s>hls</s>
+**`html`**
+**`intelephense`**
+<s>jdtls</s>
+**`jedi_language_server`**
+<s>julials</s>
+<s>kotlin_language_server</s>
+**`jsonls`**
+**`leanls`**
+<s>metals</s>
+**`nimls`**
+**`ocamlls`**
+<s>ocamllsp</s>
+<s>omnisharp</s>
+<s>perlls</s>
+**`purescriptls`**
+**`pyls`**
+<s>pyls_ms</s>
+**`pyright`**
+`r_language_server`
+`racket_langserver`
+`rls`
+`rnix`
+**`rome`**
+<s>rust_analyzer</s>
+<s>scry</s>
+`solargraph`
+`sorbet`
+<s>sourcekit</s>
+**`sqlls`**
+**`sqls`**
+<s>sumneko_lua</s>
+**`svelte`**
+<s>terraformls</s>
+**`texlab`**
+**`tsserver`**
+**`vimls`**
+<s>vls</s>
+**`vuels`**
+**`yamlls`**
+<s>zls</s>.
 
 Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were
