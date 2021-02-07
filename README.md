@@ -161,10 +161,10 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 
 Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, only **`npm`**, **`pip`**, **`go`**, **`cargogit`** and **`r`**
-commands were tested. These are what I would consider beta.
+commands were tested. These are what I would consider **`beta`**.
 
 The others that do have a config and a command defined, but were not yet
-tested (`gem`, `cargo`, `nix`, etc.) I would consider pre-alpha. In theory,
+tested (`gem`, `cargo`, `nix`, etc.) I would consider `pre-alpha`. In theory,
 they may work. If you do use them and they work, please let me know so I
 can update this README accordingly.
 
