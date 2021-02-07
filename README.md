@@ -136,7 +136,7 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 **`pyls`**
 <s>pyls_ms</s>
 **`pyright`**
-`r_language_server`
+**`r_language_server`**
 `racket_langserver`
 `rls`
 `rnix`
@@ -160,8 +160,8 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 <s>zls</s>.
 
 Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
-defined. Of those, only `npm`, `pip`, `go` and `cargogit` commands were
-tested. These are what I would consider beta.
+defined. Of those, only **`npm`**, **`pip`**, **`go`**, **`cargogit`** and **`r`**
+commands were tested. These are what I would consider beta.
 
 The others that do have a config and a command defined, but were not yet
 tested (`gem`, `cargo`, `nix`, etc.) I would consider pre-alpha. In theory,
