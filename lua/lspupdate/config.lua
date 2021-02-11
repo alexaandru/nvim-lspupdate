@@ -89,7 +89,7 @@ config.config = {
 -- The command MUST embed a %s in it - that will be replaced
 -- with the (space separated) list of packages to install.
 config.commands = {
-  npm      = "npm up -g %s",
+  npm      = "npm i -g %s",
   go       = "cd /tmp && GO111MODULE=on go get %s",
   pip      = "pip3 install --user -U -q %s",
   gem      = "gem update --user-install %s",
