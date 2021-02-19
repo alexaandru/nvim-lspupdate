@@ -96,7 +96,7 @@ config.commands = {
   nix      = "nix-shell -p %s",
   cabal    = "cabal install %s",
   nim      = "nimble install %s",
-  r        = [[R -e "install.packages(\"%s\")"]],
+  r        = [[R --slave -e "install.packages(\"%s\", quiet=TRUE)"]],
   raco     = "raco pkg install %s",
   rust     = "rustup component add %s",
   cargo    = "cargo install %s",
