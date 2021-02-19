@@ -89,14 +89,14 @@ config.config = {
 -- The command MUST embed a %s in it - that will be replaced
 -- with the (space separated) list of packages to install.
 config.commands = {
-  npm      = "npm i -g %s",
+  npm      = "npm i --quiet --silent -g %s",
   go       = "cd /tmp && GO111MODULE=on go get %s",
   pip      = "pip3 install --user -U -q %s",
   gem      = "gem update --user-install %s",
   nix      = "nix-shell -p %s",
   cabal    = "cabal install %s",
   nim      = "nimble install %s",
-  r        = [[R -e "install.packages(\"%s\")"]],
+  r        = [[R -q --slave -e "install.packages(\"%s\",quiet=T)"]],
   raco     = "raco pkg install %s",
   rust     = "rustup component add %s",
   cargo    = "cargo install %s",
