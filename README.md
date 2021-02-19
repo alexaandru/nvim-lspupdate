@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Neovim LSP Update](#neovim-lsp-update)
   - [Dependencies](#dependencies)
@@ -176,6 +177,8 @@ not supported.
 In no particular order:
 
 - integration tests;
+- make the output less messy (perhaps save raw output to a logfile, and only print
+  OK/Failed to end users? TBD...);
 - add support for github binary releases;
 - make the config configurable by end users (so they can override
   particular entries and use alternate sources/versions/etc.);
