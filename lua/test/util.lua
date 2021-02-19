@@ -16,4 +16,10 @@ require "test"("lspupdate/util", {
     {args = {"echo hello world"}, exp = "hello world"},
     {args = {"bash -c 'echo $[2+2]'"}, exp = "4"},
   },
+  esc = {
+    {args = {""}, exp = ""},
+    {args = {"foo"}, exp = "foo"},
+    {args = {"foo'bar"}, exp = "foo''bar"},
+    {args = {"'foo'bar''"}, exp = "''foo''bar''''"},
+  },
 })

@@ -18,6 +18,10 @@ function util.osCapture(cmd)
   return vim.trim(s):gsub("[\n\r]+", " ")
 end
 
+function util.esc(s)
+  return s:gsub("'", "''")
+end
+
 function util.run(cmd, t, dry)
   if not t or vim.tbl_isempty(t) then return end
 
@@ -26,8 +30,8 @@ function util.run(cmd, t, dry)
   local suffix = "... ⏳"
   if dry then suffix = "" end
 
-  vim.cmd("echom 'LspUpdate: " .. cmd .. suffix .. "'")
-  if not dry then vim.cmd("echom '" .. util.osCapture(cmd) .. "'") end
+  vim.cmd("echom 'LspUpdate: " .. util.esc(cmd) .. suffix .. "'")
+  if not dry then vim.cmd("echom '" .. util.esc(util.osCapture(cmd)) .. "'") end
 end
 
 return util
