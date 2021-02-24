@@ -1,4 +1,4 @@
-require "test"("lspupdate/util", {
+require "test"("lspupdate.util", {
   lspVal = {
     {args = {""}, exp = {""}},
     {args = {"foo|"}, exp = {""}},

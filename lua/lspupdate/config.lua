@@ -102,6 +102,17 @@ config.commands = {
   cargo    = "cargo install %s",
   cargogit = "cargo install --locked --git %s",
 }
+
+-- the table holds checks for the various commands,
+-- that allow us to determine if the executables are
+-- installed or not.
+config.checks = {
+  go = {"go version", "go(%d+.%d+.%d+) "},
+  npm = {"npm -v", "(%d+.%d+.%d+)"},
+  r = {"R --version", "R version (%d+.%d+.%d+)"},
+  pip = {"pip3 -V", "pip (%d+.%d+.%d+)"},
+  gem = {"gem -v", "(%d+.%d+.%d+)"},
+}
 -- LuaFormatter on
 
 return config

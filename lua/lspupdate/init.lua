@@ -1,6 +1,6 @@
-local config = require"lspupdate/config".config
-local commands = require"lspupdate/config".commands
-local util = require "lspupdate/util"
+local config = require"lspupdate.config".config
+local commands = require"lspupdate.config".commands
+local util = require "lspupdate.util"
 
 return function(opt)
   local dry = false
