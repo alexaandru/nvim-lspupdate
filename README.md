@@ -144,8 +144,8 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 **`rome`**
 <s>rust_analyzer</s>
 <s>scry</s>
-`solargraph`
-`sorbet`
+**`solargraph`**
+**`sorbet`**
 <s>sourcekit</s>
 **`sqlls`**
 **`sqls`**
@@ -161,11 +161,11 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 <s>zls</s>.
 
 Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
-defined. Of those, only **`npm`**, **`pip`**, **`go`**, **`cargogit`** and **`r`**
+defined. Of those, **`npm`**, **`pip`**, **`go`**, **`cargogit`**, **`r`** and **`gem`**
 commands were tested. These are what I would consider **`beta`**.
 
 The others that do have a config and a command defined, but were not yet
-tested (`gem`, `cargo`, `nix`, etc.) I would consider `pre-alpha`. In theory,
+tested (`cargo`, `nix`, etc.) I would consider `pre-alpha`. In theory,
 they may work. If you do use them and they work, please let me know so I
 can update this README accordingly.
 
