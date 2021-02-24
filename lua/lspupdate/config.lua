@@ -32,6 +32,7 @@ config.config = {
   elmls                  = "npm|elm,elm-test,elm-format,@elm-tooling/elm-language-server",
   flow                   = "npm|flow-bin",
   fortls                 = "pip|fortran-language-server",
+  fsautocomplete         = "",
   gdscript               = "",
   ghcide                 = "",
   gopls                  = "go|golang.org/x/tools/gopls@latest",

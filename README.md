@@ -112,6 +112,7 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 **`elmls`**
 `flow`
 **`fortls`**
+<s>fsautocomplete</s>
 <s>gdscript</s>
 <s>ghcide</s>
 **`gopls`**
