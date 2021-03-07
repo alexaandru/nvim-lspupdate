@@ -30,6 +30,7 @@ config.config = {
   efm                    = "go|github.com/mattn/efm-langserver",
   elixirls               = "",
   elmls                  = "npm|elm,elm-test,elm-format,@elm-tooling/elm-language-server",
+  erlangls               = "",
   flow                   = "npm|flow-bin",
   fortls                 = "pip|fortran-language-server",
   fsautocomplete         = "",
