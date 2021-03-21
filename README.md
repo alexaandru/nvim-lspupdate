@@ -96,6 +96,7 @@ Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
 <s>als</s>
 **`angularls`**
 **`bashls`**
+**`beancount`**
 <s>ccls</s>
 <s>clangd</s>
 `clojure_lsp`
