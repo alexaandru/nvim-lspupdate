@@ -28,7 +28,7 @@ remove it. Only installs and/or updates are supported.
 
 ## Dependencies
 
-- [Neovim HEAD/nightly](https://github.com/neovim/neovim/releases/tag/nightly) (v0.5 prerelease);
+- [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0);
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
 
 NOTE: your user must be able to perform installs of packages corresponding to the LSPs
