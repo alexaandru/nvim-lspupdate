@@ -1,4 +1,5 @@
 local config = {}
+local github = require "lspupdate.github"
 
 -- Holds the installation/update instructions.
 --
@@ -21,7 +22,8 @@ config.config = {
   clangd                 = "",
   clojure_lsp            = "nix|clojure-lsp",
   cmake                  = "pip|cmake-language-server",
-  codeqlls               = "",
+  codeqlls               = "bin|https://github.com/github/codeql-cli-binaries/releases/" ..
+                                "download/v2.5.7/codeql-{linux,osx,win}64.zip",
   crystalline            = "",
   cssls                  = "npm|vscode-langservers-extracted",
   dartls                 = "",
@@ -38,29 +40,32 @@ config.config = {
   flow                   = "npm|flow-bin",
   fortls                 = "pip|fortran-language-server",
   fsautocomplete         = "",
-  gdscript               = "",
-  ghcide                 = "",
+  gdscript               = "bin|https://downloads.tuxfamily.org/godotengine/3.3.2/" ..
+                                "Godot_v3.3.2-stable_{linux_headless.64,osx.64,win64.exe}.zip",
+  ghcide                 = "deprecated|use hls",
   gopls                  = "go|golang.org/x/tools/gopls@latest",
   graphql                = "npm|graphql-language-service-cli",
   groovyls               = "",
   haxe_language_server   = "",
-  hie                    = "",
-  hls                    = "",
+  hie                    = "deprecated|use hls",
+  hls                    = "bin|https://github.com/haskell/haskell-language-server/releases/download/1.2.0/" ..
+                                "haskell-language-server-{Linux,macOS}-1.2.0.tar.gz",
   html                   = "npm|vscode-langservers-extracted",
   intelephense           = "npm|intelephense",
   java_language_server   = "",
   jdtls                  = "",
   jedi_language_server   = "pip|jedi-language-server",
   jsonls                 = "npm|vscode-langservers-extracted",
-  julials                = "",
+  julials                = [[julia|Pkg.add("LanguageServer"); Pkg.add("SymbolServer")]],
   kotlin_language_server = "",
   lean3ls                = "",
   leanls                 = "npm|lean-language-server",
   metals                 = "",
   nimls                  = "nim|nimlsp",
   ocamlls                = "npm|ocaml-langauge-server",
-  ocamllsp               = "",
-  omnisharp              = "",
+  ocamllsp               = "opam|ocaml-lsp-server",
+  omnisharp              = "bin|https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.37.12/" ..
+                                "omnisharp-{linux-x64,osx,win-x64}.zip",
   perlls                 = "perl|Perl::LanguageServer",
   perlpls                = "perl|PLS",
   phpactor               = "",
@@ -78,7 +83,8 @@ config.config = {
   rls                    = "rust|rls,rust-analysis,rust-src",
   rnix                   = "cargo|rnix-lsp",
   rome                   = "npm|rome",
-  rust_analyzer          = "",
+  rust_analyzer          = "bin|https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-07-12/" ..
+                                "rust-analyzer-x86_64-{unknown-linux-gnu,apple-darwin,pc-windows-msvc}.gz",
   scry                   = "",
   solargraph             = "gem|solargraph",
   sorbet                 = "gem|sorbet",
@@ -90,7 +96,7 @@ config.config = {
   svelte                 = "npm|svelte-language-server",
   svls                   = "cargo|svls",
   tailwindcss            = "",
-  terraformls            = "",
+  terraformls            = "gh_bin|hashicorp/terraform-ls",
   texlab                 = "cargogit|https://github.com/latex-lsp/texlab.git",
   tflint                 = "go|github.com/terraform-linters/tflint",
   tsserver               = "npm|typescript,typescript-language-server",
@@ -100,7 +106,8 @@ config.config = {
   vuels                  = "npm|vls",
   yamlls                 = "npm|yaml-language-server",
   zeta_note              = "",
-  zls                    = "",
+  zls                    = "bin|https://github.com/zigtools/zls/releases/download/0.1.0/" ..
+                                "x86_64-{linux,macos,windows}.tar.xz",
 }
 
 -- the table defines the actual commands to be run for
@@ -111,7 +118,8 @@ config.config = {
 -- The command MUST embed a %s in it - that will be replaced
 -- with the (space separated) list of packages to install.
 config.commands = {
-  npm      = "npm i --quiet --silent -g %s",
+  bin      = nil, -- placeholder only, WIP
+  npm      = "npm i --quiet -g %s",
   go       = "cd /tmp && GO111MODULE=on go get %s",
   pip      = "pip3 install --user -U -q %s",
   gem      = "gem install -q --silent --user-install %s",
@@ -124,18 +132,27 @@ config.commands = {
   rust     = "rustup component add %s",
   cargo    = "cargo install %s",
   cargogit = "cargo install --locked --git %s",
+  julia    = "julia -e 'using Pkg; %s'",
+  opam     = "opam install %s",
+  gh_bin   = github.update_releases,
 }
 
 -- the table holds checks for the various commands,
 -- that allow us to determine if the executables are
 -- installed or not.
 config.checks = {
-  go = {"go version", "go(%d+.%d+.%d+) "},
-  npm = {"npm -v", "(%d+.%d+.%d+)"},
-  r = {"R --version", "R version (%d+.%d+.%d+)"},
-  pip = {"pip3 -V", "pip (%d+.%d+.%d+)"},
-  gem = {"gem -v", "(%d+.%d+.%d+)"},
-  perl = {"perl -v", "v(%d+.%d+.%d+)"},
+  go     = { go = {"version", "go(%d+.%d+.%d+) "} },
+  npm    = { npm = {"-v", "(%d+.%d+.%d+)"} },
+  r      = { R = {"--version", "R version (%d+.%d+.%d+)"} },
+  pip    = { pip3 = {"-V", "pip (%d+.%d+.%d+)"} },
+  gem    = { gem = {"-v", "(%d+.%d+.%d+)"} },
+  perl   = { perl = {"-v", "v(%d+.%d+.%d+)"} },
+  opam   = { opam = {"--version", "(%d+.%d+.%d+)"} },
+  julia  = { julia = {"-v", "(%d+.%d+.%d+)"} },
+  gh_bin = {
+             curl = {"-V", "(%d+.%d+.%d+)"},
+             unzip = {"-v", "UnZip (%d+.%d+) of"},
+           },
 }
 -- LuaFormatter on
 

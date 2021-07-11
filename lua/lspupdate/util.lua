@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local util = {}
 
 function util.lspVal(s)
@@ -9,13 +10,16 @@ function util.flatten(t, sep)
   return table.concat(vim.tbl_flatten(t), sep or " ")
 end
 
-function util.osCapture(cmd)
-  local f = assert(io.popen(cmd, "r"))
+function util.osCapture(cmd, trim)
+  trim = (trim ~= false)
+  local f = assert(io.popen(cmd .. " 2>&1", "r"))
   local s = assert(f:read("*a"))
 
   f:close()
 
-  return vim.trim(s):gsub("[\n\r]+", " ")
+  if trim then s = vim.trim(s):gsub("[\n\r]+", " ") end
+
+  return s
 end
 
 function util.esc(s)
@@ -27,11 +31,56 @@ function util.run(cmd, t, dry)
 
   cmd = cmd:format(util.flatten(t))
 
-  local suffix = "... ⏳"
-  if dry then suffix = "" end
+  if dry then
+    util.info(cmd .. " OK (dry)")
+    return
+  end
 
-  vim.cmd("echom 'LspUpdate: " .. util.esc(cmd) .. suffix .. "'")
-  if not dry then vim.cmd("echom '" .. util.esc(util.osCapture(cmd)) .. "'") end
+  local out = util.osCapture(cmd)
+  if out == "" then
+    util.info(cmd .. " OK")
+  elseif out:find("ERROR") then
+    util.error(cmd .. ": " .. out)
+  else
+    util.warn(cmd .. ": " .. out)
+  end
+end
+
+function util.basename(path)
+  return path:sub(path:find("/[^/]*$") + 1)
+end
+
+function util.dirname(path)
+  return path:sub(1, path:find("/[^/]*$") - 1)
+end
+
+-- TODO: allow endusers to override the location of TMP folder
+function util.tmpdir()
+  if jit.os == "Windows" then
+    return os.getenv("Temp")
+  else
+    return "/tmp"
+  end
+end
+
+function util.first_path()
+  local path = os.getenv("PATH")
+  local sep = ":"
+  if jit.os == "Windows" then sep = ";" end
+
+  return vim.split(path, sep, true)[1]
+end
+
+function util.info(msg)
+  vim.notify("LspUpdate: " .. msg, vim.log.levels.INFO)
+end
+
+function util.warn(msg)
+  vim.notify("LspUpdate: " .. msg, vim.log.levels.WARN)
+end
+
+function util.error(msg)
+  vim.notify("LspUpdate: " .. msg, vim.log.levels.ERROR)
 end
 
 return util
