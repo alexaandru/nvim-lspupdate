@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 local util = require "lspupdate.util"
 
 return function(config)
@@ -38,15 +39,17 @@ return function(config)
       goto continue
     end
 
-    local out = util.osCapture(check[1])
-    out = out or ""
+    for cmd, opts in pairs(check) do
+      local out = util.osCapture(cmd .. " " .. opts[1])
+      out = out or ""
 
-    local match = out:match(check[2])
+      local match = out:match(opts[2])
 
-    if not match or match == "" then
-      health_error(("command %s not found"):format(k))
-    else
-      health_ok(("command %s found: v%s"):format(k, match))
+      if not match or match == "" then
+        health_error(("command %s (needed for %s) not found"):format(cmd, k))
+      else
+        health_ok(("%s ready: %s v%s found"):format(k, cmd, match))
+      end
     end
 
     ::continue::

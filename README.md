@@ -92,75 +92,7 @@ If the dry parameter is passed, then commands are only printed but not actually 
 
 ## Status
 
-Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>:
-<s>als</s>
-**`angularls`**
-**`bashls`**
-**`beancount`**
-<s>ccls</s>
-<s>clangd</s>
-`clojure_lsp`
-**`cmake`**
-<s>codeqlls</s>
-**`cssls`**
-<s>dartls</s>
-`denols`
-`dhall_lsp_server`
-**`diagnosticls`**
-**`dockerls`**
-**`efm`**
-<s>elixirls</s>
-**`elmls`**
-`flow`
-**`fortls`**
-<s>fsautocomplete</s>
-<s>gdscript</s>
-<s>ghcide</s>
-**`gopls`**
-**`graphql`**
-<s>groovyls</s>
-<s>hie</s>
-<s>hls</s>
-**`html`**
-**`intelephense`**
-<s>jdtls</s>
-**`jedi_language_server`**
-<s>julials</s>
-<s>kotlin_language_server</s>
-**`jsonls`**
-**`leanls`**
-<s>metals</s>
-**`nimls`**
-**`ocamlls`**
-<s>ocamllsp</s>
-<s>omnisharp</s>
-<s>perlls</s>
-**`purescriptls`**
-**`pyls`**
-<s>pyls_ms</s>
-**`pyright`**
-**`r_language_server`**
-`racket_langserver`
-`rls`
-`rnix`
-**`rome`**
-<s>rust_analyzer</s>
-<s>scry</s>
-**`solargraph`**
-**`sorbet`**
-<s>sourcekit</s>
-**`sqlls`**
-**`sqls`**
-<s>sumneko_lua</s>
-**`svelte`**
-<s>terraformls</s>
-**`texlab`**
-**`tsserver`**
-**`vimls`**
-<s>vls</s>
-**`vuels`**
-**`yamlls`**
-<s>zls</s>.
+Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>.
 
 Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
 defined. Of those, **`npm`**, **`pip`**, **`go`**, **`cargogit`**, **`r`** and **`gem`**
@@ -174,6 +106,19 @@ can update this README accordingly.
 Those that do not even have a config or command defined are, obviously,
 not supported.
 
+### Github binary releases
+
+There is initial support for Github binary releases (gh_bin "command") with
+`terraform-ls` being the first to be tested successfully, on Linux. It won't
+work on OSX yet and may work on Windows (untested). To support this, there are
+additional dependencies/requirements:
+
+- curl (used to download the .zip files);
+- unzip (used to unzip them).
+- the repo name, .zip file prefix and binary file inside the .zip are identical
+  (i.e. hashicorp/terraform-ls has terraform-ls.\*.zip assets which include a
+  terraform-ls binary, well except for Windows, which also has .exe suffix).
+
 ## Roadmap
 
 In no particular order:
@@ -181,7 +126,6 @@ In no particular order:
 - integration tests;
 - make the output less messy (perhaps save raw output to a logfile, and only print
   OK/Failed to end users? TBD...);
-- add support for github binary releases;
 - make the config configurable by end users (so they can override
   particular entries and use alternate sources/versions/etc.);
 - add a nice way to handle "complicated installs" (yes sumenko_lua,
