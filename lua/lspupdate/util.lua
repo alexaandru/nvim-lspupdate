@@ -26,7 +26,7 @@ function util.esc(s)
   return s:gsub("'", "''")
 end
 
-function util.run(cmd, t, dry)
+function util.run(output, cmd, t, dry)
   if not t or vim.tbl_isempty(t) then return end
 
   cmd = cmd:format(util.flatten(t))
@@ -36,14 +36,36 @@ function util.run(cmd, t, dry)
     return
   end
 
-  local out = util.osCapture(cmd)
-  if out == "" then
-    util.info(cmd .. " OK")
-  elseif out:find("ERROR") then
-    util.error(cmd .. ": " .. out)
-  else
-    util.warn(cmd .. ": " .. out)
+  local update = function(job, data)
+    data = data or {}
+    output[job] = output[job] or ""
+    output[job] = output[job] .. vim.fn.join(data)
   end
+
+  local wrapit = function(job, code)
+    local out = output[job]
+    output[job] = nil
+
+    if code > 0 or out:find("ERROR") then
+      util.error(cmd .. ": " .. out)
+    elseif out ~= "" then
+      util.warn(cmd .. ": " .. out)
+    else
+      util.info(cmd .. " OK")
+    end
+
+    if vim.tbl_isempty(output) then util.info("All done!") end
+  end
+
+  local job = vim.fn.jobstart(cmd, {
+    on_stdout = update,
+    on_stderr = update,
+    on_exit = wrapit,
+  })
+
+  -- Need to ensure all jobs have an entry there ASAP or we'll get the "All done" message too soon :-)
+  -- I know, a mutex would be much better...
+  output[job] = ""
 end
 
 function util.basename(path)

@@ -7,7 +7,7 @@
   - [Dependencies](#dependencies)
   - [Install](#install)
   - [Config](#config)
-  - [Use](#use)
+  - [Usage](#usage)
   - [Status](#status)
   - [Roadmap](#roadmap)
 
@@ -72,7 +72,7 @@ whole table.
 Please refer to the comments in `config.lua` above mentioned for the keys
 and values (commands) to use in that dictionary.
 
-## Use
+## Usage
 
 See [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#quickstart) on
 how to setup the LSP servers' configuration. Once you have them configured
@@ -90,12 +90,17 @@ installed.
 
 If the dry parameter is passed, then commands are only printed but not actually run.
 
+The installs are async (using jobstart()) with one exception (gh_bin install type,
+see below) so you can just fire & forget, and sometime later, check with `:messages`.
+
+When all the jobs are completed it will print an "All done!" message.
+
 ## Status
 
 Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>.
 
 Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
-defined. Of those, **`npm`**, **`pip`**, **`go`**, **`cargogit`**, **`r`** and **`gem`**
+defined. Of those, **`npm`**, **`pip`**, **`go`**, **`cargogit`**, **`r`**, **`gem`** and **`gh_bin`**
 commands were tested. These are what I would consider **`beta`**.
 
 The others that do have a config and a command defined, but were not yet
@@ -110,11 +115,12 @@ not supported.
 
 There is initial support for Github binary releases (gh_bin "command") with
 `terraform-ls` being the first to be tested successfully, on Linux. It won't
-work on OSX yet and may work on Windows (untested). To support this, there are
-additional dependencies/requirements:
+work on OSX nor Windows yet.
 
-- curl (used to download the .zip files);
-- unzip (used to unzip them).
+To support this type of update, there are additional dependencies/requirements:
+
+- `curl` (used to download the .zip files);
+- `unzip` (used to unzip them).
 - the repo name, .zip file prefix and binary file inside the .zip are identical
   (i.e. hashicorp/terraform-ls has terraform-ls.\*.zip assets which include a
   terraform-ls binary, well except for Windows, which also has .exe suffix).

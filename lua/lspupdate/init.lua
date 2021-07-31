@@ -18,6 +18,7 @@ return function(opt)
   local packages = {}
   local unknown = {}
   local user_commands = vim.g.lspupdate_commands or {}
+  local output = {}
 
   for lsp, _ in pairs(require "lspconfig/configs") do
     local cfg = config[lsp]
@@ -47,7 +48,7 @@ return function(opt)
   for k, v in pairs(packages) do
     local cmd = cmds[k]
     if type(cmd) == "string" then
-      util.run(cmd, v, dry)
+      util.run(output, cmd, v, dry)
     elseif type(cmd) == "function" then
       cmd(vim.tbl_flatten(v), dry)
     else
