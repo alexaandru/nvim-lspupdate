@@ -1,17 +1,8 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**IMPORTANT!** v0.9.0 is the last version written in **Lua**. Past that, the project
+has moved to [**Fennel**](https://fennel-lang.org/). If you want to continue using
+this project, you will need a [**Hotpot**](https://github.com/rktjmp/hotpot.nvim).
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
-- [Neovim LSP Update](#neovim-lsp-update)
-  - [Dependencies](#dependencies)
-  - [Install](#install)
-  - [Config](#config)
-  - [Usage](#usage)
-  - [Status](#status)
-  - [Roadmap](#roadmap)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+---
 
 # Neovim LSP Update
 
@@ -28,8 +19,9 @@ remove it. Only installs and/or updates are supported.
 
 ## Dependencies
 
-- [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0);
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
+- [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [Hotpot](https://github.com/rktjmp/hotpot.nvim)
 
 NOTE: your user must be able to perform installs of packages corresponding to the LSPs
 you will be using. I.e. if you install `npm` based LSPs, then you must be able to
@@ -58,7 +50,7 @@ therefore I made it so that it requires NO configuration. It should work
 out of the box for the supported configurations ([see status](#status)).
 
 You can however override any (or all) of the commands used (which you can
-[see here](lua/lspupdate/config.lua#L85)) by defining a `g:lspupdate_commands`
+[see here](fnl/lspupdate/config.fnl#L115)) by defining a `g:lspupdate_commands`
 dictionary in your `init.vim`, i.e.:
 
 ```VimL
@@ -97,25 +89,25 @@ When all the jobs are completed it will print an "All done!" message.
 
 ## Status
 
-Mix of **`beta`**, `pre-alpha` and <s>not (yet) supported</s>.
+Mix of **`stable`**, `beta` and <s>not (yet) supported</s>.
 
-Over half of the servers have [a config and a command](lua/lspupdate/config.lua)
-defined. Of those, **`npm`**, **`pip`**, **`go`**, **`cargogit`**, **`r`**, **`gem`** and **`gh_bin`**
-commands were tested. These are what I would consider **`beta`**.
+About 2/3 of the servers have [a config and a command](fnl/lspupdate/config.fnl)
+defined. Of those, the following were battle tested by me or others: **`npm`**,
+**`pip`**, **`go`**, **`cargogit`**, **`r`**, **`gem`** and **`gh_bin`**. These
+are what I consider **`stable`**.
 
 The others that do have a config and a command defined, but were not yet
-tested (`cargo`, `nix`, etc.) I would consider `pre-alpha`. In theory,
-they may work. If you do use them and they work, please let me know so I
-can update this README accordingly.
+tested (`cargo`, `nix`, etc.) I would consider `beta`. In theory, they may
+work, just need beta testers :) If you do use them and they work, please
+let me know so I can update this README accordingly.
 
 Those that do not even have a config or command defined are, obviously,
 not supported.
 
 ### Github binary releases
 
-There is initial support for Github binary releases (gh_bin "command") with
-`terraform-ls` being the first to be tested successfully, on Linux. It won't
-work on OSX nor Windows yet.
+We now have support for Github binary releases (gh_bin "pseudo command") with
+`terraform-ls` being the first to be tested successfully, on Linux.
 
 To support this type of update, there are additional dependencies/requirements:
 
@@ -129,14 +121,7 @@ To support this type of update, there are additional dependencies/requirements:
 
 In no particular order:
 
-- integration tests;
-- make the output less messy (perhaps save raw output to a logfile, and only print
-  OK/Failed to end users? TBD...);
 - make the config configurable by end users (so they can override
   particular entries and use alternate sources/versions/etc.);
-- add a nice way to handle "complicated installs" (yes sumenko_lua,
-  that includes you);
-- give a way to end users to control if the packages (for a
-  particular LSP or package kind) are "merged" into a single
-  command or handled individually;
-- ensure it runs well on all of {Linux,MacOS,Windows}.
+- ensure it runs well on all of {Linux,MacOS,Windows};
+- integration tests.
