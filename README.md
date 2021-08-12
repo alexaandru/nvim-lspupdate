@@ -17,6 +17,10 @@ It does NOT handle (auto)removals, i.e. if you had a LSP
 server installed and then removed it's config, it will NOT
 remove it. Only installs and/or updates are supported.
 
+You can see it below in action:
+
+https://user-images.githubusercontent.com/85237/129180498-11457175-5cfb-4085-a2a0-51745f56ee70.mp4
+
 ## Dependencies
 
 - [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0)
