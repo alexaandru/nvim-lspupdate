@@ -7,11 +7,15 @@ test:
 lspconfig_check:
 	@./lspconfig.sh
 
-lua: clean
+fennel:
+	@gunzip --stdout fennel.gz > fennel
+	@chmod a+rx fennel
+
+lua: clean fennel 
 	@mkdir -p lua/lspupdate
 	@for i in fnl/lspupdate/*; do ./fennel --compile $$i > lua/lspupdate/$$(basename $$i .fnl).lua; done
 
 clean:
-	@rm -rf lua
+	@rm -rf lua fennel
 
-.PHONY: test lua
+.PHONY: test lua fennel

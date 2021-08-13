@@ -34,13 +34,7 @@ You can see it below in action:
 
 https://user-images.githubusercontent.com/85237/129180498-11457175-5cfb-4085-a2a0-51745f56ee70.mp4
 
-## Dependencies
-
-- [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0)
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [Hotpot](https://github.com/rktjmp/hotpot.nvim)
-
-NOTE: your user must be able to perform installs of packages corresponding to the LSPs
+**NOTE:** your user must be able to perform installs of packages corresponding to the LSPs
 you will be using. I.e. if you install `npm` based LSPs, then you must be able to
 run `npm i -g ...` successfully, **WITHOUT** sudo. That is the best practice anyway,
 you should in general install "global" packages (whether we talk about NodeJS, Ruby,
@@ -59,6 +53,19 @@ package manager, e.g.:
 ```
 packadd nvim-lspupdate
 ```
+
+### Dependencies
+
+- [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+
+#### Conditional Dependencies
+
+If you (want to) run Fennel in **Neovim**, you will need [Hotpot](https://github.com/rktjmp/hotpot.nvim).
+
+If instead you want to only run **Lua** (for which **Neovim** was builtin support)
+you will need **Lua** installed on your system, in order to convert the
+**Fennel** files using the `make lua` target.
 
 ## Config
 
