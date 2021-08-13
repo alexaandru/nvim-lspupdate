@@ -32,7 +32,7 @@
       :diagnosticls "npm|diagnostic-languageserver"
       :dockerls "npm|dockerfile-language-server-nodejs"
       :dotls "npm|dot-language-server"
-      :efm "go|github.com/mattn/efm-langserver"
+      :efm "go|github.com/mattn/efm-langserver@latest"
       :elixirls nil
       :elmls "npm|elm,elm-test,elm-format,@elm-tooling/elm-language-server"
       :ember "npm|@lifeart/ember-language-server"
@@ -86,7 +86,7 @@
       :sorbet "gem|sorbet"
       :sourcekit nil
       :sqlls "npm|sql-language-server"
-      :sqls "go|github.com/lighttiger2505/sqls"
+      :sqls "go|github.com/lighttiger2505/sqls@latest"
       :stylelint_lsp "npm|stylelint-lsp"
       :sumneko_lua nil
       :svelte "npm|svelte-language-server"
@@ -94,7 +94,7 @@
       :tailwindcss nil
       :terraformls "gh_bin|hashicorp/terraform-ls"
       :texlab "cargogit|https://github.com/latex-lsp/texlab.git"
-      :tflint "go|github.com/terraform-linters/tflint"
+      :tflint "go|github.com/terraform-linters/tflint@latest"
       :tsserver "npm|typescript,typescript-language-server"
       :vala_ls nil
       :vimls "npm|vim-language-server"
@@ -118,7 +118,7 @@
                         :cargogit "cargo install --locked --git %s"
                         :gem "gem install -q --silent --user-install %s"
                         :gh_bin update_github_releases
-                        :go "cd /tmp && GO111MODULE=on go get %s"
+                        :go "go install %s"
                         :julia "julia -e 'using Pkg; %s'"
                         :nim "nimble install %s"
                         :nix "nix-shell -p %s"
@@ -129,6 +129,16 @@
                         :r "R -q --slave -e \"install.packages(\\\"%s\\\",quiet=T)\""
                         :raco "raco pkg install %s"
                         :rust "rustup component add %s"}))
+
+;; by default the config.commands will be run in one go, with
+;; all of their packages squashed into a single, space separated,
+;; string.
+;; I.e. if you have npm packages A, B and C, the command being
+;; run will be `npm i [...] A B C` which will install them in
+;; one go.
+;; Adding a command to the `nosquash` list, prevents that behavior
+;; and causes them to be run separately (but concurrently still).
+(set config.nosquash [:go :julia :perl])
 
 ;; the table holds checks for the various commands,
 ;; that allow us to determine if the executables are

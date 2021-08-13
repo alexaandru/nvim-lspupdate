@@ -1,15 +1,35 @@
-(local {: config : commands} (require :lspupdate.config))
 (local {: err : warn : lspVal : run} (require :lspupdate.util))
+(local cfg (require :lspupdate.config))
 (local ins table.insert)
 
 (fn [opt]
+  (fn with-user-override [tbl]
+    (let [default-tbl (. cfg tbl)
+          user-tbl (or {} (. vim.g (.. :lspupdate_ tbl)))]
+      (vim.tbl_extend :force default-tbl user-tbl)))
+
   (let [dry (= opt :dry)]
     (if (and (not= opt :dry) (not= opt nil))
         (err "only parameter 'dry' is supported")
         (let [packages {}
               unknown {}
               output {}
-              user-commands (or vim.g.lspupdate_commands {})]
+              config (with-user-override :config)
+              commands (with-user-override :commands)
+              nosquash (with-user-override :nosquash)]
+          (fn dispatch [kind args]
+            (let [cmd (. commands kind)]
+              ;; dispatch commands, respecting nosquash indication
+              (if (and (vim.tbl_contains nosquash kind) (> (length args) 1))
+                  (each [_ v (ipairs args)]
+                    (dispatch kind [v]))
+                  (if (= (type cmd) :string) (run output cmd args dry)
+                      (= (type cmd) :function)
+                      (vim.schedule #(cmd output (vim.tbl_flatten args) dry))
+                      (ins unknown
+                           (.. "don't know how to handle command " kind
+                               " of type " (type cmd)))))))
+
           (each [lsp _ (pairs (require :lspconfig/configs))]
             (let [cfg (. config lsp)]
               (if (or (not cfg) (= cfg ""))
@@ -24,15 +44,8 @@
                           (when (not (. packages kind))
                             (tset packages kind {}))
                           (ins (. packages kind) (lspVal cfg))))))))
-          (let [cmds (vim.tbl_extend :force commands user-commands)]
-            (each [k v (pairs packages)]
-              (let [cmd (. cmds k)]
-                (if (= (type cmd) :string) (run output cmd v dry)
-                    (= (type cmd) :function)
-                    (vim.schedule #(cmd output (vim.tbl_flatten v) dry))
-                    (ins unknown
-                         (.. "don't know how to handle command " k " of type "
-                             (type cmd)))))))
+          (each [kind args (pairs packages)]
+            (dispatch kind (vim.tbl_flatten args)))
           (each [_ v (pairs unknown)]
             (warn v))))))
 
