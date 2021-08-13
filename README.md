@@ -1,6 +1,19 @@
-**IMPORTANT!** v0.9.0 is the last version written in **Lua**. Past that, the project
-has moved to [**Fennel**](https://fennel-lang.org/). If you want to continue using
-this project, you will need a [**Hotpot**](https://github.com/rktjmp/hotpot.nvim).
+**IMPORTANT!** As of v1.0.0, the project is written in [**Fennel**](https://fennel-lang.org/).
+
+If you already use **Fennel** (with [**Hotpot**](https://github.com/rktjmp/hotpot.nvim))
+then this plugin will work out of the box.
+
+If you do **NOT** use **Fennel**, then there is an extra step you need to take,
+after checking out the plugin and before using it for the 1st time:
+run `make lua` from the plugin folder. That is a one time operation, that
+will convert the **Fennel** files to **Lua**.
+
+Most plugins managers should allow you to automate the step above, i.e.:
+with **vim-plug**, you can do:
+
+```
+Plug 'alexaandru/nvim-lspupdate', {'do': 'make lua'}
+```
 
 ---
 
