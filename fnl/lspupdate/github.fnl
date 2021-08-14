@@ -29,11 +29,8 @@
         (info (.. url " to " pname " OK (dry)"))
         (do
           (var location (first_path))
-          ;; TODO: use exepath() instead, as it's portable
-          (let [existing (osCapture (.. "type " pname) no-output-trim)]
-            (if (vim.startswith existing (.. pname " is "))
-                (set location
-                     (dirname (existing:sub (+ (existing:find " [^ ]*$") 1))))))
+          (let [existing (vim.fn.exepath pname)]
+            (if (not= "" existing) (set location (dirname existing))))
           (let [tmp (tmpdir)
                 curl-out (osCapture (fmt "curl -sLo %s/lsp.zip %s" tmp url))]
             (if (not= curl-out "")
