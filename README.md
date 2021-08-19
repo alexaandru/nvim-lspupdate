@@ -1,22 +1,3 @@
-**IMPORTANT!** As of v1.0.0, the project is written in [**Fennel**](https://fennel-lang.org/).
-
-If you already use **Fennel** (with [**Hotpot**](https://github.com/rktjmp/hotpot.nvim))
-then this plugin will work out of the box.
-
-If you do **NOT** use **Fennel**, then there is an extra step you need to take,
-after checking out the plugin and before using it for the 1st time:
-run `make lua` from the plugin folder. That is a one time operation, that
-will convert the **Fennel** files to **Lua**.
-
-Most plugins managers should allow you to automate the step above, i.e.:
-with **vim-plug**, you can do:
-
-```
-Plug 'alexaandru/nvim-lspupdate', {'do': 'make lua'}
-```
-
----
-
 # Neovim LSP Update
 
 ![Test](https://github.com/alexaandru/nvim-lspupdate/workflows/Test/badge.svg)
@@ -58,14 +39,10 @@ packadd nvim-lspupdate
 
 - [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-
-#### Conditional Dependencies
-
-If you (want to) run Fennel in **Neovim**, you will need [Hotpot](https://github.com/rktjmp/hotpot.nvim).
-
-If instead you want to run the **Lua** version, you will need **Lua**
-installed on your system, in order to convert the **Fennel**
-files using the `make lua` target.
+- OPTIONAL: [Hotpot](https://github.com/rktjmp/hotpot.nvim) if you want
+  to run the `fennel` branch directly. That is where all development takes
+  place, but the `main` branch is feed off of it, and kept up to date. So
+  it's down to preference, which one to use.
 
 ## Config
 
