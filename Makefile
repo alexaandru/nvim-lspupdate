@@ -13,7 +13,7 @@ fennel:
 
 lua: clean fennel 
 	@mkdir -p lua/lspupdate
-	@for i in fnl/lspupdate/*; do ./fennel --compile $$i > lua/lspupdate/$$(basename $$i .fnl).lua; done
+	@for i in fnl/lspupdate/*; do lua fennel --compile $$i > lua/lspupdate/$$(basename $$i .fnl).lua; done
 
 clean:
 	@rm -rf lua fennel
