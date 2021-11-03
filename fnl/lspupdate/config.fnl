@@ -14,6 +14,7 @@
        :als nil
        :angularls "npm|@angular/language-server"
        :ansiblels "npm|ansible-language-server"
+       :arduino_language_server "go|github.com/arduino/arduino-language-server"
        :bashls "npm|bash-language-server"
        :beancount "npm|@bryall/beancount-langserver"
        :bicep "bin|https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip"
@@ -23,7 +24,9 @@
        :cmake "pip|cmake-language-server"
        :codeqlls "bin|https://github.com/github/codeql-cli-binaries/releases/download/v2.5.7/codeql-{linux,osx,win}64.zip"
        :crystalline nil
+       :csharp_ls "dotnet|csharp-ls"
        :cssls "npm|vscode-langservers-extracted"
+       :cucumber_language_server "npm|@cucumber/language-server"
        :dartls nil
        :denols "cargo|deno"
        :dhall_lsp_server "cabal|dhall-lsp-server"
@@ -34,10 +37,14 @@
        :elixirls nil
        :elmls "npm|elm,elm-test,elm-format,@elm-tooling/elm-language-server"
        :ember "npm|@lifeart/ember-language-server"
+       :emmet_ls "npm|emmet-ls"
        :erlangls nil
+       :eslint "npm|vscode-langservers-extracted"
        :flow "npm|flow-bin"
+       :flux-lsp "cargogit|https://github.com/influxdata/flux-lsp"
        :fortls "pip|fortran-language-server"
        :fsautocomplete nil
+       :fstar "opam|fstar"
        :gdscript "bin|https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_{linux_headless.64,osx.64,win64.exe}.zip"
        :ghcide "deprecated|use hls"
        :gopls "go|golang.org/x/tools/gopls@latest"
@@ -47,6 +54,7 @@
        :hie "deprecated|use hls"
        :hls "bin|https://github.com/haskell/haskell-language-server/releases/download/1.2.0/haskell-language-server-{Linux,macOS}-1.2.0.tar.gz"
        :html "npm|vscode-langservers-extracted"
+       :idris2_lsp nil
        :intelephense "npm|intelephense"
        :java_language_server nil
        :jdtls nil
@@ -56,17 +64,21 @@
        :kotlin_language_server nil
        :lean3ls nil
        :leanls "npm|lean-language-server"
+       :lemminx "bin|https://download.jboss.org/jbosstools/vscode/stable/lemminx-binary/"
+       :ltex nil
        :metals nil
        :mint nil
        :nimls "nim|nimlsp"
        :ocamlls "npm|ocaml-langauge-server"
        :ocamllsp "opam|ocaml-lsp-server"
        :omnisharp "bin|https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.37.12/omnisharp-{linux-x64,osx,win-x64}.zip"
+       :pasls nil
        :perlls "perl|Perl::LanguageServer"
        :perlpls "perl|PLS"
        :phpactor nil
        :powershell_es nil
        :prismals "npm|@prisma/language-server"
+       :psalm "composer|vimeo/psalm"
        :puppet nil
        :purescriptls "npm|purescript-language-server,spago,purescript"
        :pylsp "pip|python-lsp-server[all]"
@@ -80,6 +92,7 @@
        :rust_analyzer "bin|https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-07-12/rust-analyzer-x86_64-{unknown-linux-gnu,apple-darwin,pc-windows-msvc}.gz"
        :scry nil
        :serve_d "bin|https://github.com/Pure-D/serve-d/releases"
+       :solang nil
        :solargraph "gem|solargraph"
        :sorbet "gem|sorbet"
        :sourcekit nil
@@ -90,16 +103,20 @@
        :svelte "npm|svelte-language-server"
        :svls "cargo|svls"
        :tailwindcss nil
+       :taplo "cargo|taplo-lsp"
        :terraformls "gh_bin|hashicorp/terraform-ls"
        :texlab "cargogit|https://github.com/latex-lsp/texlab.git"
        :tflint "go|github.com/terraform-linters/tflint@latest"
+       :theme_check "gem|theme-check"
        :tsserver "npm|typescript,typescript-language-server"
        :vala_ls nil
        :vimls "npm|vim-language-server"
        :vls nil
+       :volar "npm|@volar/server"
        :vuels "npm|vls"
        :yamlls "npm|yaml-language-server"
        :zeta_note nil
+       :zk nil
        :zls "bin|https://github.com/zigtools/zls/releases/download/0.1.0/x86_64-{linux,macos,windows}.tar.xz"})
 
 (local update_github_releases (require :lspupdate.github))
@@ -118,6 +135,8 @@
        :cabal "cabal install %s"
        :cargo "cargo install %s"
        :cargogit "cargo install --locked --git %s"
+       :composer "composer global require %s"
+       :dotnet "dotnet tool install %s"
        :gem "gem install -q --silent --user-install %s"
        :gh_bin update_github_releases
        :go "go install %s"
