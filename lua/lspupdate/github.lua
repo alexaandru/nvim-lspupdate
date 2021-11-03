@@ -41,9 +41,9 @@ local function update_release(output, proj, dry)
   else
     local location = first_path()
     do
-      local existing = osCapture(("type " .. pname), no_output_trim)
-      if vim.startswith(existing, (pname .. " is ")) then
-        location = dirname(existing:sub((existing:find(" [^ ]*$") + 1)))
+      local existing = vim.fn.exepath(pname)
+      if ("" ~= existing) then
+        location = dirname(existing)
       end
     end
     local tmp = tmpdir()
