@@ -9,7 +9,7 @@
   (let [tools {}
         {: efm} (require :lspconfig/configs)
         {: make_config} efm
-        out (make_config)
+        out (make_config ".")
         languages out.settings.languages]
     (each [_ v1 (pairs languages)]
       (each [_ v2 (ipairs v1)]
