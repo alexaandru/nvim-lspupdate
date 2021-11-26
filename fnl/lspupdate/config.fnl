@@ -104,6 +104,7 @@
        :solargraph "gem|solargraph"
        :sorbet "gem|sorbet"
        :sourcekit nil
+       :spectral_ls "npm|spectral-language-server"
        :sqlls "npm|sql-language-server"
        :sqls "go|github.com/lighttiger2505/sqls@latest"
        :stylelint_lsp "npm|stylelint-lsp"
@@ -118,6 +119,7 @@
        :tflint "go|github.com/terraform-linters/tflint@latest"
        :theme_check "gem|theme-check"
        :tsserver "npm|typescript,typescript-language-server"
+       :typeprof "gem|typeprof"
        :vala_ls nil
        :vdmj nil
        :vimls "npm|vim-language-server"
