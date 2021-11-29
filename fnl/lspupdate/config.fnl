@@ -3,7 +3,7 @@
 ;; INTERNAL - end users should not have to edit anything in here,
 ;; if needed, please submit a ticket.
 ;; The keys, represent the name of the LSP, as defined in nvim-lspconfig:
-;; https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+;; https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 ;;
 ;; The values represent a micro DSL, as follows:
 ;; {npm,go,pip,gem,etc.}|package1[,package2[,...]]
