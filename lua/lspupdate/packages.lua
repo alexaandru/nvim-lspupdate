@@ -12,11 +12,11 @@ local function tool_extract(tool)
 end
 local function tools_list_efm()
   local tools = {}
-  local _let_3_ = require("lspconfig/configs")
+  local _let_3_ = require("lspconfig.configs")
   local efm = _let_3_["efm"]
   local _let_4_ = efm
   local make_config = _let_4_["make_config"]
-  local out = make_config()
+  local out = make_config(".")
   local languages = out.settings.languages
   for _, v1 in pairs(languages) do
     for _0, v2 in ipairs(v1) do
@@ -70,7 +70,7 @@ local function list_all()
       end
     end
   end
-  for lsp in pairs(require("lspconfig/configs")) do
+  for lsp in pairs(require("lspconfig.configs")) do
     do
       local cfg = config[lsp]
       ins_packages(cfg, lsp, "LSP server")

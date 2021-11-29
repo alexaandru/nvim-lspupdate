@@ -89,4 +89,36 @@ local function first_path()
   end
   return split(path, sep, true)[2]
 end
-return {basename = basename, dirname = dirname, err = err, first_path = first_path, flatten = flatten, info = info, lspVal = lspVal, osCapture = osCapture, run = run, tmpdir = tmpdir, warn = warn}
+local function health()
+  local config = require("lspupdate.config")
+  local health0 = require("health")
+  local start = health0.report_start
+  local ok = health0.report_ok
+  local err0 = health0.report_error
+  local warn0 = health0.report_warn
+  local kinds = {}
+  start("Checking for executables needed for install/update...")
+  local packages, unknown = require("lspupdate.packages")()
+  for _, v in ipairs(unknown) do
+    warn0(v)
+  end
+  for k in pairs(packages) do
+    local check = config.checks[k]
+    if not check then
+      warn0(("check is not configured for " .. k))
+    else
+      for cmd, opts in pairs(check) do
+        local out = (osCapture((cmd .. " " .. opts[1])) or "")
+        local m = out:match(opts[2])
+        local fmt = string.format
+        if (not m or (m == "")) then
+          err0(fmt("command %s (needed for %s) not found", cmd, k))
+        else
+          ok(fmt("%s ready: %s v%s found", k, cmd, m))
+        end
+      end
+    end
+  end
+  return nil
+end
+return {basename = basename, dirname = dirname, err = err, first_path = first_path, flatten = flatten, health = health, info = info, lspVal = lspVal, osCapture = osCapture, run = run, tmpdir = tmpdir, warn = warn}
