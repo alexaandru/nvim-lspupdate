@@ -7,7 +7,7 @@
 
 (fn tools-list-efm [] ; print(vim.inspect(x.make_config().settings.languages))
   (let [tools {}
-        {: efm} (require :lspconfig/configs)
+        {: efm} (require :lspconfig.configs)
         {: make_config} efm
         out (make_config ".")
         languages out.settings.languages]
@@ -50,7 +50,7 @@
                       (ins (. packages kind) (lspVal cfg))))))))
 
     ;; gather packages for all configured LSPs
-    (each [lsp (pairs (require :lspconfig/configs))]
+    (each [lsp (pairs (require :lspconfig.configs))]
       (let [cfg (. config lsp)]
         (ins-packages cfg lsp "LSP server"))
       ;; gather all tools for "proxy LSPs"
