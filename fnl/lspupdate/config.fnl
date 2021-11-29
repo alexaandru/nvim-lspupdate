@@ -18,6 +18,7 @@
        :bashls "npm|bash-language-server"
        :beancount "npm|@bryall/beancount-langserver"
        :bicep "bin|https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip"
+       :bsl_ls nil
        :ccls nil
        :clangd nil
        :clojure_lsp "nix|clojure-lsp"
@@ -39,6 +40,7 @@
        :ember "npm|@lifeart/ember-language-server"
        :emmet_ls "npm|emmet-ls"
        :erlangls nil
+       :esbonio "pip|esbonio"
        :eslint "npm|vscode-langservers-extracted"
        :flow "npm|flow-bin"
        :flux-lsp "cargogit|https://github.com/influxdata/flux-lsp"
@@ -60,14 +62,17 @@
        :jdtls nil
        :jedi_language_server "pip|jedi-language-server"
        :jsonls "npm|vscode-langservers-extracted"
+       :jsonnet_ls "go|github.com/jdbaldry/jsonnet-language-server"
        :julials "julia|Pkg.add(\"LanguageServer\"); Pkg.add(\"SymbolServer\")"
        :kotlin_language_server nil
        :lean3ls nil
        :leanls "npm|lean-language-server"
+       :lelwel_ls "cargo2|lelwel"
        :lemminx "bin|https://download.jboss.org/jbosstools/vscode/stable/lemminx-binary/"
        :ltex nil
        :metals nil
        :mint nil
+       :nickel_ls nil
        :nimls "nim|nimlsp"
        :ocamlls "npm|ocaml-langauge-server"
        :ocamllsp "opam|ocaml-lsp-server"
@@ -82,20 +87,24 @@
        :puppet nil
        :purescriptls "npm|purescript-language-server,spago,purescript"
        :pylsp "pip|python-lsp-server[all]"
+       :pyre "pip|pyre-check"
        :pyright "npm|pyright"
        :r_language_server "r|languageserver"
        :racket_langserver "raco|racket-langserver"
        :rescriptls nil
        :rls "rust|rls,rust-analysis,rust-src"
        :rnix "cargo|rnix-lsp"
+       :robotframework_ls nil
        :rome "npm|rome"
        :rust_analyzer "bin|https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-07-12/rust-analyzer-x86_64-{unknown-linux-gnu,apple-darwin,pc-windows-msvc}.gz"
        :scry nil
        :serve_d "bin|https://github.com/Pure-D/serve-d/releases"
+       :sixtyfps "cargo|sixtyfps-lsp"
        :solang nil
        :solargraph "gem|solargraph"
        :sorbet "gem|sorbet"
        :sourcekit nil
+       :spectral "npm|spectral-language-server"
        :sqlls "npm|sql-language-server"
        :sqls "go|github.com/lighttiger2505/sqls@latest"
        :stylelint_lsp "npm|stylelint-lsp"
@@ -104,12 +113,15 @@
        :svls "cargo|svls"
        :tailwindcss nil
        :taplo "cargo|taplo-lsp"
+       :terraform_lsp "go|github.com/juliosueiras/terraform-lsp"
        :terraformls "gh_bin|hashicorp/terraform-ls"
        :texlab "cargogit|https://github.com/latex-lsp/texlab.git"
        :tflint "go|github.com/terraform-linters/tflint@latest"
        :theme_check "gem|theme-check"
        :tsserver "npm|typescript,typescript-language-server"
+       :typeprof "gem|typeprof"
        :vala_ls nil
+       :vdmj nil
        :vimls "npm|vim-language-server"
        :vls nil
        :volar "npm|@volar/server"
@@ -134,6 +146,7 @@
        :bin nil
        :cabal "cabal install %s"
        :cargo "cargo install %s"
+       :cargo2 "cargo install --features=lsp %s"
        :cargogit "cargo install --locked --git %s"
        :composer "composer global require %s"
        :dotnet "dotnet tool install %s"
