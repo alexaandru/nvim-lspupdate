@@ -104,7 +104,7 @@
        :solargraph "gem|solargraph"
        :sorbet "gem|sorbet"
        :sourcekit nil
-       :spectral_ls "npm|spectral-language-server"
+       :spectral "npm|spectral-language-server"
        :sqlls "npm|sql-language-server"
        :sqls "go|github.com/lighttiger2505/sqls@latest"
        :stylelint_lsp "npm|stylelint-lsp"
