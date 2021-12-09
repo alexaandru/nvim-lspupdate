@@ -49,6 +49,7 @@
        :fstar "opam|fstar"
        :gdscript "bin|https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_{linux_headless.64,osx.64,win64.exe}.zip"
        :ghcide "deprecated|use hls"
+       :golangci_lint_ls "go|github.com/nametake/golangci-lint-langserver@latest,github.com/golangci/golangci-lint/cmd/golangci-lint"
        :gopls "go|golang.org/x/tools/gopls@latest"
        :graphql "npm|graphql-language-service-cli"
        :groovyls nil
@@ -89,6 +90,7 @@
        :pylsp "pip|python-lsp-server[all]"
        :pyre "pip|pyre-check"
        :pyright "npm|pyright"
+       :quick_lint_js "npm|quick-lint-js"
        :r_language_server "r|languageserver"
        :racket_langserver "raco|racket-langserver"
        :rescriptls nil
