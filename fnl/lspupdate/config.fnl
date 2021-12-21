@@ -20,6 +20,7 @@
        :bicep "bin|https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip"
        :bsl_ls nil
        :ccls nil
+       :cssmodules_ls "npm|cssmodules-language-server"
        :clangd nil
        :clojure_lsp "nix|clojure-lsp"
        :cmake "pip|cmake-language-server"
@@ -43,13 +44,15 @@
        :esbonio "pip|esbonio"
        :eslint "npm|vscode-langservers-extracted"
        :flow "npm|flow-bin"
-       :flux-lsp "cargogit|https://github.com/influxdata/flux-lsp"
+       :flux_lsp "cargogit|https://github.com/influxdata/flux-lsp"
        :fortls "pip|fortran-language-server"
        :fsautocomplete nil
        :fstar "opam|fstar"
        :gdscript "bin|https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_{linux_headless.64,osx.64,win64.exe}.zip"
        :ghcide "deprecated|use hls"
+       :golangci_lint_ls "go|github.com/nametake/golangci-lint-langserver@latest,github.com/golangci/golangci-lint/cmd/golangci-lint"
        :gopls "go|golang.org/x/tools/gopls@latest"
+       :grammarly "npm|@emacs-grammarly/unofficial-grammarly-language-server"
        :graphql "npm|graphql-language-service-cli"
        :groovyls nil
        :haxe_language_server nil
@@ -89,6 +92,7 @@
        :pylsp "pip|python-lsp-server[all]"
        :pyre "pip|pyre-check"
        :pyright "npm|pyright"
+       :quick_lint_js "npm|quick-lint-js"
        :r_language_server "r|languageserver"
        :racket_langserver "raco|racket-langserver"
        :rescriptls nil
@@ -102,6 +106,7 @@
        :sixtyfps "cargo|sixtyfps-lsp"
        :solang nil
        :solargraph "gem|solargraph"
+       :solidity_ls "npm|solidity-language-server"
        :sorbet "gem|sorbet"
        :sourcekit nil
        :spectral "npm|spectral-language-server"
