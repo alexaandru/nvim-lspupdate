@@ -95,6 +95,7 @@
        :quick_lint_js "npm|quick-lint-js"
        :r_language_server "r|languageserver"
        :racket_langserver "raco|racket-langserver"
+       :remark_ls "npm|remark-language-server"
        :rescriptls nil
        :rls "rust|rls,rust-analysis,rust-src"
        :rnix "cargo|rnix-lsp"
@@ -127,6 +128,7 @@
        :typeprof "gem|typeprof"
        :vala_ls nil
        :vdmj nil
+       :verible "gh_bin|chipsalliance/verible"
        :vimls "npm|vim-language-server"
        :vls nil
        :volar "npm|@volar/server"
