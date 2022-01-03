@@ -107,6 +107,7 @@
        :sixtyfps "cargo|sixtyfps-lsp"
        :solang nil
        :solargraph "gem|solargraph"
+       :solc "npm|solc"
        :solidity_ls "npm|solidity-language-server"
        :sorbet "gem|sorbet"
        :sourcekit nil
