@@ -15,6 +15,7 @@
        :angularls "npm|@angular/language-server"
        :ansiblels "npm|ansible-language-server"
        :arduino_language_server "go|github.com/arduino/arduino-language-server"
+       :asm_lsp "cargo|asm-lsp"
        :bashls "npm|bash-language-server"
        :beancount "npm|@bryall/beancount-langserver"
        :bicep "bin|https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip"
@@ -45,6 +46,7 @@
        :eslint "npm|vscode-langservers-extracted"
        :flow "npm|flow-bin"
        :flux_lsp "cargogit|https://github.com/influxdata/flux-lsp"
+       :foam_ls "npm|foam-language-server"
        :fortls "pip|fortran-language-server"
        :fsautocomplete nil
        :fstar "opam|fstar"
@@ -80,6 +82,7 @@
        :ocamlls "npm|ocaml-langauge-server"
        :ocamllsp "opam|ocaml-lsp-server"
        :omnisharp "bin|https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.37.12/omnisharp-{linux-x64,osx,win-x64}.zip"
+       :opencl_ls "gh_bin|Galarius/opencl-language-server"
        :pasls nil
        :perlls "perl|Perl::LanguageServer"
        :perlpls "perl|PLS"

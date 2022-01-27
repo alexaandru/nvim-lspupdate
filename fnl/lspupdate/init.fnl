@@ -2,8 +2,9 @@
 
 ;; FIXME: output from npm seems to be truncated on errors.
 ;; Need to see what the errors are...
-(fn LspUpdate [opt]
-  (let [dry (= opt :dry)]
+(fn LspUpdate [ctx]
+  (let [opt ctx.args
+        dry (= opt :dry)]
     (if (and (not= opt :dry) (not= opt nil))
         (err "only parameter 'dry' is supported")
         (let [{: commands : nosquash} (require :lspupdate.config)]
