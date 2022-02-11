@@ -37,7 +37,7 @@ packadd nvim-lspupdate
 
 ### Dependencies
 
-- [Neovim 0.5+](https://github.com/neovim/neovim/releases/tag/v0.5.0)
+- [Neovim 0.7+](https://github.com/neovim/neovim)
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - OPTIONAL: [Hotpot](https://github.com/rktjmp/hotpot.nvim) if you want
   to run the `fennel` branch directly. That is where all development takes

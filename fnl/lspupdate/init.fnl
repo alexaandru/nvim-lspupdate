@@ -5,7 +5,7 @@
 (fn LspUpdate [ctx]
   (let [opt ctx.args
         dry (= opt :dry)]
-    (if (and (not= opt :dry) (not= opt nil))
+    (if (and (not= opt :dry) (not= opt ""))
         (err "only parameter 'dry' is supported")
         (let [{: commands : nosquash} (require :lspupdate.config)]
           (fn dispatch [kind args output unknown]
