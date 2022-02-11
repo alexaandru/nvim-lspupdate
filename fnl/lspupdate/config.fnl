@@ -16,6 +16,7 @@
        :ansiblels "npm|ansible-language-server"
        :arduino_language_server "go|github.com/arduino/arduino-language-server"
        :asm_lsp "cargo|asm-lsp"
+       :awk_ls "npm|awk-language-server"
        :bashls "npm|bash-language-server"
        :beancount "npm|@bryall/beancount-langserver"
        :bicep "gh_bin|Azure/bicep"
@@ -105,6 +106,7 @@
        :robotframework_ls nil
        :rome "npm|rome"
        :rust_analyzer "gh_bin|rust-analyzer/rust-analyzer"
+       :salt_ls "pip|salt-lsp"
        :scry nil
        :serve_d "gh_bin|Pure-D/serve-d"
        :sixtyfps "cargo|sixtyfps-lsp"
