@@ -59,6 +59,7 @@
        :graphql "npm|graphql-language-service-cli"
        :groovyls nil
        :haxe_language_server nil
+       :hdl_checker "pip|hdl-checker"
        :hie "deprecated|use hls"
        :hls "ghcup|hls"
        :html "npm|vscode-langservers-extracted"
@@ -110,6 +111,7 @@
        :scry nil
        :serve_d "gh_bin|Pure-D/serve-d"
        :sixtyfps "cargo|sixtyfps-lsp"
+       :slint_lsp "cargo|slint-lsp"
        :solang nil
        :solargraph "gem|solargraph"
        :solc "npm|solc"
