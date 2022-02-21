@@ -13,138 +13,138 @@
 (local config {
        :als nil
        :angularls "npm|@angular/language-server"
-       :ansiblels "npm|ansible-language-server"
-       :arduino_language_server "go|github.com/arduino/arduino-language-server"
-       :asm_lsp "cargo|asm-lsp"
-       :awk_ls "npm|awk-language-server"
-       :bashls "npm|bash-language-server"
+       :ansiblels :npm|ansible-language-server
+       :arduino_language_server :go|github.com/arduino/arduino-language-server
+       :asm_lsp :cargo|asm-lsp
+       :awk_ls :npm|awk-language-server
+       :bashls :npm|bash-language-server
        :beancount "npm|@bryall/beancount-langserver"
-       :bicep "gh_bin|Azure/bicep"
+       :bicep :gh_bin|Azure/bicep
        :bsl_ls nil
        :ccls nil
-       :cssmodules_ls "npm|cssmodules-language-server"
+       :cssmodules_ls :npm|cssmodules-language-server
        :clangd nil
-       :clojure_lsp "nix|clojure-lsp"
-       :cmake "pip|cmake-language-server"
-       :codeqlls "gh_bin|github/codeql-cli-binaries"
+       :clojure_lsp :nix|clojure-lsp
+       :cmake :pip|cmake-language-server
+       :codeqlls :gh_bin|github/codeql-cli-binaries
        :crystalline nil
-       :csharp_ls "dotnet|csharp-ls"
-       :cssls "npm|vscode-langservers-extracted"
+       :csharp_ls :dotnet|csharp-ls
+       :cssls :npm|vscode-langservers-extracted
        :cucumber_language_server "npm|@cucumber/language-server"
        :dartls nil
-       :denols "cargo|deno"
-       :dhall_lsp_server "cabal|dhall-lsp-server"
-       :diagnosticls "npm|diagnostic-languageserver"
-       :dockerls "npm|dockerfile-language-server-nodejs"
-       :dotls "npm|dot-language-server"
+       :denols :cargo|deno
+       :dhall_lsp_server :cabal|dhall-lsp-server
+       :diagnosticls :npm|diagnostic-languageserver
+       :dockerls :npm|dockerfile-language-server-nodejs
+       :dotls :npm|dot-language-server
        :efm "go|github.com/mattn/efm-langserver@latest"
        :elixirls nil
        :elmls "npm|elm,elm-test,elm-format,@elm-tooling/elm-language-server"
        :ember "npm|@lifeart/ember-language-server"
-       :emmet_ls "npm|emmet-ls"
+       :emmet_ls :npm|emmet-ls
        :erlangls nil
-       :esbonio "pip|esbonio"
-       :eslint "npm|vscode-langservers-extracted"
-       :flow "npm|flow-bin"
+       :esbonio :pip|esbonio
+       :eslint :npm|vscode-langservers-extracted
+       :flow :npm|flow-bin
        :flux_lsp "cargogit|https://github.com/influxdata/flux-lsp"
-       :foam_ls "npm|foam-language-server"
-       :fortls "pip|fortran-language-server"
+       :foam_ls :npm|foam-language-server
+       :fortls :pip|fortran-language-server
        :fsautocomplete nil
-       :fstar "opam|fstar"
+       :fstar :opam|fstar
        :gdscript "bin|https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_{linux_headless.64,osx.64,win64.exe}.zip"
        :ghcide "deprecated|use hls"
        :golangci_lint_ls "go|github.com/nametake/golangci-lint-langserver@latest,github.com/golangci/golangci-lint/cmd/golangci-lint"
        :gopls "go|golang.org/x/tools/gopls@latest"
        :grammarly "npm|@emacs-grammarly/unofficial-grammarly-language-server"
-       :graphql "npm|graphql-language-service-cli"
+       :graphql :npm|graphql-language-service-cli
        :groovyls nil
        :haxe_language_server nil
-       :hdl_checker "pip|hdl-checker"
+       :hdl_checker :pip|hdl-checker
        :hie "deprecated|use hls"
-       :hls "ghcup|hls"
-       :html "npm|vscode-langservers-extracted"
+       :hls :ghcup|hls
+       :html :npm|vscode-langservers-extracted
        :idris2_lsp nil
-       :intelephense "npm|intelephense"
+       :intelephense :npm|intelephense
        :java_language_server nil
        :jdtls nil
-       :jedi_language_server "pip|jedi-language-server"
-       :jsonls "npm|vscode-langservers-extracted"
-       :jsonnet_ls "go|github.com/jdbaldry/jsonnet-language-server"
+       :jedi_language_server :pip|jedi-language-server
+       :jsonls :npm|vscode-langservers-extracted
+       :jsonnet_ls :go|github.com/jdbaldry/jsonnet-language-server
        :julials "julia|Pkg.add(\"LanguageServer\"); Pkg.add(\"SymbolServer\")"
        :kotlin_language_server nil
        :lean3ls nil
-       :leanls "npm|lean-language-server"
-       :lelwel_ls "cargo2|lelwel"
+       :leanls :npm|lean-language-server
+       :lelwel_ls :cargo2|lelwel
        :lemminx "bin|https://download.jboss.org/jbosstools/vscode/stable/lemminx-binary/"
        :ltex nil
        :metals nil
        :mint nil
        :nickel_ls nil
-       :nimls "nim|nimlsp"
-       :ocamlls "npm|ocaml-langauge-server"
-       :ocamllsp "opam|ocaml-lsp-server"
-       :omnisharp "gh_bin|OmniSharp/omnisharp-roslyn"
-       :opencl_ls "gh_bin|Galarius/opencl-language-server"
+       :nimls :nim|nimlsp
+       :ocamlls :npm|ocaml-langauge-server
+       :ocamllsp :opam|ocaml-lsp-server
+       :omnisharp :gh_bin|OmniSharp/omnisharp-roslyn
+       :opencl_ls :gh_bin|Galarius/opencl-language-server
        :pasls nil
        :perlls "perl|Perl::LanguageServer"
-       :perlpls "perl|PLS"
+       :perlpls :perl|PLS
        :phpactor nil
        :powershell_es nil
        :prismals "npm|@prisma/language-server"
-       :psalm "composer|vimeo/psalm"
+       :psalm :composer|vimeo/psalm
        :puppet nil
        :purescriptls "npm|purescript-language-server,spago,purescript"
        :pylsp "pip|python-lsp-server[all]"
-       :pyre "pip|pyre-check"
-       :pyright "npm|pyright"
-       :quick_lint_js "npm|quick-lint-js"
-       :r_language_server "r|languageserver"
-       :racket_langserver "raco|racket-langserver"
-       :remark_ls "npm|remark-language-server"
+       :pyre :pip|pyre-check
+       :pyright :npm|pyright
+       :quick_lint_js :npm|quick-lint-js
+       :r_language_server :r|languageserver
+       :racket_langserver :raco|racket-langserver
+       :remark_ls :npm|remark-language-server
        :rescriptls nil
        :rls "rust|rls,rust-analysis,rust-src"
-       :rnix "cargo|rnix-lsp"
+       :rnix :cargo|rnix-lsp
        :robotframework_ls nil
-       :rome "npm|rome"
-       :rust_analyzer "gh_bin|rust-analyzer/rust-analyzer"
-       :salt_ls "pip|salt-lsp"
+       :rome :npm|rome
+       :rust_analyzer :gh_bin|rust-analyzer/rust-analyzer
+       :salt_ls :pip|salt-lsp
        :scry nil
-       :serve_d "gh_bin|Pure-D/serve-d"
-       :sixtyfps "cargo|sixtyfps-lsp"
-       :slint_lsp "cargo|slint-lsp"
+       :serve_d :gh_bin|Pure-D/serve-d
+       :sixtyfps :cargo|sixtyfps-lsp
+       :slint_lsp :cargo|slint-lsp
        :solang nil
-       :solargraph "gem|solargraph"
-       :solc "npm|solc"
-       :solidity_ls "npm|solidity-language-server"
-       :sorbet "gem|sorbet"
+       :solargraph :gem|solargraph
+       :solc :npm|solc
+       :solidity_ls :npm|solidity-language-server
+       :sorbet :gem|sorbet
        :sourcekit nil
-       :spectral "npm|spectral-language-server"
-       :sqlls "npm|sql-language-server"
+       :spectral :npm|spectral-language-server
+       :sqlls :npm|sql-language-server
        :sqls "go|github.com/lighttiger2505/sqls@latest"
-       :stylelint_lsp "npm|stylelint-lsp"
+       :stylelint_lsp :npm|stylelint-lsp
        :sumneko_lua nil
-       :svelte "npm|svelte-language-server"
-       :svls "cargo|svls"
+       :svelte :npm|svelte-language-server
+       :svls :cargo|svls
        :tailwindcss nil
-       :taplo "cargo|taplo-lsp"
-       :terraform_lsp "go|github.com/juliosueiras/terraform-lsp"
-       :terraformls "gh_bin|hashicorp/terraform-ls"
+       :taplo :cargo|taplo-lsp
+       :terraform_lsp :go|github.com/juliosueiras/terraform-lsp
+       :terraformls :gh_bin|hashicorp/terraform-ls
        :texlab "cargogit|https://github.com/latex-lsp/texlab.git"
        :tflint "go|github.com/terraform-linters/tflint@latest"
-       :theme_check "gem|theme-check"
+       :theme_check :gem|theme-check
        :tsserver "npm|typescript,typescript-language-server"
-       :typeprof "gem|typeprof"
+       :typeprof :gem|typeprof
        :vala_ls nil
        :vdmj nil
-       :verible "gh_bin|chipsalliance/verible"
-       :vimls "npm|vim-language-server"
+       :verible :gh_bin|chipsalliance/verible
+       :vimls :npm|vim-language-server
        :vls nil
        :volar "npm|@volar/server"
-       :vuels "npm|vls"
-       :yamlls "npm|yaml-language-server"
+       :vuels :npm|vls
+       :yamlls :npm|yaml-language-server
        :zeta_note nil
        :zk nil
-       :zls "gh_bin|zigtools/zls"})
+       :zls :gh_bin|zigtools/zls})
 
 (local update_github_releases (require :lspupdate.github))
 
