@@ -16,6 +16,7 @@
        :ansiblels :npm|ansible-language-server
        :arduino_language_server :go|github.com/arduino/arduino-language-server
        :asm_lsp :cargo|asm-lsp
+       :astro "npm|@astrojs/language-server"
        :awk_ls :npm|awk-language-server
        :bashls :npm|bash-language-server
        :beancount "npm|@bryall/beancount-langserver"
@@ -24,6 +25,7 @@
        :ccls nil
        :cssmodules_ls :npm|cssmodules-language-server
        :clangd nil
+       :clarity_lsp nil
        :clojure_lsp :nix|clojure-lsp
        :cmake :pip|cmake-language-server
        :codeqlls :gh_bin|github/codeql-cli-binaries
@@ -55,13 +57,16 @@
        :ghcide "deprecated|use hls"
        :golangci_lint_ls "go|github.com/nametake/golangci-lint-langserver@latest,github.com/golangci/golangci-lint/cmd/golangci-lint"
        :gopls "go|golang.org/x/tools/gopls@latest"
+       :gradle_ls nil
        :grammarly "npm|@emacs-grammarly/unofficial-grammarly-language-server"
        :graphql :npm|graphql-language-service-cli
        :groovyls nil
        :haxe_language_server nil
        :hdl_checker :pip|hdl-checker
+       :hhvm nil
        :hie "deprecated|use hls"
        :hls :ghcup|hls
+       :hoon_ls "npm|@hoon-language-server"
        :html :npm|vscode-langservers-extracted
        :idris2_lsp nil
        :intelephense :npm|intelephense
@@ -79,18 +84,24 @@
        :ltex nil
        :metals nil
        :mint nil
+       :mm0_ls nil
        :nickel_ls nil
        :nimls :nim|nimlsp
        :ocamlls :npm|ocaml-langauge-server
        :ocamllsp :opam|ocaml-lsp-server
+       :ols nil
        :omnisharp :gh_bin|OmniSharp/omnisharp-roslyn
        :opencl_ls :gh_bin|Galarius/opencl-language-server
+       :openscad_ls :cargo|openscad-language-server
        :pasls nil
        :perlls "perl|Perl::LanguageServer"
+       :perlnavigator nil
        :perlpls :perl|PLS
        :phpactor nil
+       :please :gh_bin|thought-machine/please
        :powershell_es nil
        :prismals "npm|@prisma/language-server"
+       :prosemd_lsp :gh_bin|kitten/prosemd-lsp
        :psalm :composer|vimeo/psalm
        :puppet nil
        :purescriptls "npm|purescript-language-server,spago,purescript"
@@ -100,6 +111,7 @@
        :quick_lint_js :npm|quick-lint-js
        :r_language_server :r|languageserver
        :racket_langserver :raco|racket-langserver
+       :reason_ls :gh_bin|jaredly/reason-language-server
        :remark_ls :npm|remark-language-server
        :rescriptls nil
        :rls "rust|rls,rust-analysis,rust-src"
@@ -118,15 +130,18 @@
        :solidity_ls :npm|solidity-language-server
        :sorbet :gem|sorbet
        :sourcekit nil
+       :sourcery :gh_bin|sourcery-ai/sourcery
        :spectral :npm|spectral-language-server
        :sqlls :npm|sql-language-server
        :sqls "go|github.com/lighttiger2505/sqls@latest"
+       :steep :gem|steep
        :stylelint_lsp :npm|stylelint-lsp
        :sumneko_lua nil
        :svelte :npm|svelte-language-server
        :svls :cargo|svls
        :tailwindcss nil
        :taplo :cargo|taplo-lsp
+       :teal_ls :luarocksdev|teal-language-server
        :terraform_lsp :go|github.com/juliosueiras/terraform-lsp
        :terraformls :gh_bin|hashicorp/terraform-ls
        :texlab "cargogit|https://github.com/latex-lsp/texlab.git"
