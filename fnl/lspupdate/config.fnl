@@ -14,6 +14,7 @@
        :als nil
        :angularls "npm|@angular/language-server"
        :ansiblels :npm|ansible-language-server
+       :apex_ls nil
        :arduino_language_server :go|github.com/arduino/arduino-language-server
        :asm_lsp :cargo|asm-lsp
        :astro "npm|@astrojs/language-server"
@@ -55,6 +56,8 @@
        :fstar :opam|fstar
        :gdscript "bin|https://downloads.tuxfamily.org/godotengine/3.3.2/Godot_v3.3.2-stable_{linux_headless.64,osx.64,win64.exe}.zip"
        :ghcide "deprecated|use hls"
+       :ghdl_ls nil
+       :glint "npm|@glint/core"
        :golangci_lint_ls "go|github.com/nametake/golangci-lint-langserver@latest,github.com/golangci/golangci-lint/cmd/golangci-lint"
        :gopls "go|golang.org/x/tools/gopls@latest"
        :gradle_ls nil
@@ -82,6 +85,7 @@
        :lelwel_ls :cargo2|lelwel
        :lemminx "bin|https://download.jboss.org/jbosstools/vscode/stable/lemminx-binary/"
        :ltex nil
+       :marksman :gh_bin|artempyanykh/marksman
        :metals nil
        :mint nil
        :mm0_ls nil
@@ -97,6 +101,7 @@
        :perlls "perl|Perl::LanguageServer"
        :perlnavigator nil
        :perlpls :perl|PLS
+       :phan nil
        :phpactor nil
        :please :gh_bin|thought-machine/please
        :powershell_es nil
@@ -138,6 +143,7 @@
        :stylelint_lsp :npm|stylelint-lsp
        :sumneko_lua nil
        :svelte :npm|svelte-language-server
+       :svlangserver "npm|@imc-trading/svlangserver"
        :svls :cargo|svls
        :tailwindcss nil
        :taplo :cargo|taplo-lsp
@@ -147,17 +153,19 @@
        :texlab "cargogit|https://github.com/latex-lsp/texlab.git"
        :tflint "go|github.com/terraform-linters/tflint@latest"
        :theme_check :gem|theme-check
+       :tilt_ls :gh_bin|tilt-dev/tilt
        :tsserver "npm|typescript,typescript-language-server"
        :typeprof :gem|typeprof
        :vala_ls nil
        :vdmj nil
        :verible :gh_bin|chipsalliance/verible
        :vimls :npm|vim-language-server
+       :visualforce_ls nil
        :vls nil
        :volar "npm|@volar/server"
        :vuels :npm|vls
+       :wgsl_analyzer "cargogit|https://github.com/wgsl-analyzer/wgsl-analyzer"
        :yamlls :npm|yaml-language-server
-       :zeta_note nil
        :zk nil
        :zls :gh_bin|zigtools/zls})
 
