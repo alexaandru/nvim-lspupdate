@@ -92,5 +92,5 @@
 
 ;; fnlfmt: skip
 ;(collect [_ v (ipairs [:hashicorp/terraform-ls :Azure/bicep :github/codeql-cli-binaries :OmniSharp/omnisharp-roslyn :Galarius/opencl-language-server :rust-analyzer/rust-analyzer :zigtools/zls :Pure-D/serve-d :chipsalliance/verible])]
-;  (values v (release v)))
+;  v (release v))
 
