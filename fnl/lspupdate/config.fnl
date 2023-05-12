@@ -239,7 +239,7 @@
        ;:lua-format "luarocksdev|luaformatter"
        :luacheck "luarocks|luacheck"
        :mix "apt|mix"
-       :prettier "npm|preetier"
+       :prettier "npm|prettier"
        :rebar3 "apt|rebar3"
        :terrascan "gh_bin_TODO|accurics/terrascan"
        :tfsec "gh_bin_TODO|aquasecurity/tfsec"})
