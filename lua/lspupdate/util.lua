@@ -91,7 +91,7 @@ local function first_path()
 end
 local function health()
   local config = require("lspupdate.config")
-  local health0 = require("health")
+  local health0 = vim.health or require("health")
   local start = health0.report_start
   local ok = health0.report_ok
   local err0 = health0.report_error
