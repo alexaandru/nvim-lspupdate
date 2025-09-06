@@ -266,6 +266,5 @@
     (vim.tbl_extend :force default-tbl user-tbl)))
 
 (collect [k tbl (pairs {: config : commands : nosquash : tools : checks})]
-  k
-  (with-user-override tbl k))
+  k (with-user-override tbl k))
 

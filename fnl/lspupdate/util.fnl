@@ -70,12 +70,10 @@
 
 (fn health []
   (let [config (require :lspupdate.config)
-        health (require :health)
-        start health.report_start
-        ok health.report_ok
-        err health.report_error
-        warn health.report_warn
-        kinds {}]
+        start vim.health.start
+        ok vim.health.ok
+        err vim.health.error
+        warn vim.health.warn]
     (start "Checking for executables needed for install/update...")
     (let [(packages unknown) ((require :lspupdate.packages))]
       (each [_ v (ipairs unknown)]
